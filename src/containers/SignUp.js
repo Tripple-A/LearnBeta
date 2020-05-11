@@ -11,7 +11,7 @@ const SignUp = ({ login }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
-  const [switcher, setSwitcher] = useState(false)
+  const [switcher, setSwitcher] = useState(false);
 
   const handleChange = e => {
     switch (e.target.name) {
