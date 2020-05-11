@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { LOGIN } from '../actions';
 
-const mapDispatchToProps = dispatch => {
-  return {
-    login: username => dispatch(LOGIN(username)),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  login: username => dispatch(LOGIN(username)),
+});
 
-const SignUp = () => {
+const SignUp = ({ login }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
+  const [switcher, setSwitcher] = useState(false)
 
   const handleChange = e => {
     switch (e.target.name) {
@@ -30,9 +30,11 @@ const SignUp = () => {
     return null;
   };
 
-  const handleLogin = (username) => {
+  const handleLogin = username => {
+    login(username);
+    setSwitcher(true);
+  };
 
-  }
   const handleSignUp = () => {
     fetch('https://mycourses-api.herokuapp.com/api/users', {
       method: 'POST',
@@ -47,15 +49,24 @@ const SignUp = () => {
       }),
     }).then(resp => resp.json())
       .then(data => {
+        console.log(data);
         localStorage.setItem('token', data.data);
+        handleLogin(username);
       });
     setUsername('');
     setPasswordConfirmation('');
     setPassword('');
   };
 
+  const renderRedirect = () => {
+    if (switcher === true) {
+      return <Redirect to='/' />
+    }
+  };
+
   return (
     <div>
+      {renderRedirect()}
       <input name="username" type="text" placeholder="Username" onChange={e => handleChange(e)} />
       <br />
       <input name="password" type="password" placeholder="Password" onChange={e => handleChange(e)} />
