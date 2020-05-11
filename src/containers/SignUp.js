@@ -72,6 +72,9 @@ const SignUp = ({ login }) => {
       const target = `/profile/${username}`;
       return <Redirect to={target} />;
     }
+    if (localStorage.getItem('token')) {
+      return <Redirect to="/profile/user" />;
+    }
     return null;
   };
 

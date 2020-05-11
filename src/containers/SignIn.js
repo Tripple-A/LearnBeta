@@ -48,6 +48,9 @@ const SignIn = () => {
       const target = `/profile/${username}`;
       return <Redirect to={target} />;
     }
+    if (localStorage.getItem('token')) {
+      return <Redirect to="/profile/user" />;
+    }
     return null;
   };
 
@@ -61,6 +64,7 @@ const SignIn = () => {
       <br />
       <button onClick={handleSignIn} type="submit"> Sign In </button>
     </div>
+    
   );
 };
 
