@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const SignIn = () => {
+const mapStateToProps = state => ({
+  user: state.user,
+});
+
+const SignIn = ({ user }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [switcher, setSwitcher] = useState(false);
@@ -44,12 +49,14 @@ const SignIn = () => {
   };
 
   const renderRedirect = () => {
+    let target;
     if (switcher === true) {
-      const target = `/profile/${username}`;
+      target = `/profile/${username}`;
       return <Redirect to={target} />;
     }
-    if (localStorage.getItem('token')) {
-      return <Redirect to="/profile/user" />;
+    if (user) {
+      target = `/profile/${user}`;
+      return <Redirect to={target} />;
     }
     return null;
   };
@@ -64,8 +71,8 @@ const SignIn = () => {
       <br />
       <button onClick={handleSignIn} type="submit"> Sign In </button>
     </div>
-    
+
   );
 };
 
-export default SignIn;
+export default connect(mapStateToProps)(SignIn);

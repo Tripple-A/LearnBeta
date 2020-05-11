@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { LOGIN } from '../actions';
 
-const mapDispatchToProps = dispatch => ({
-  login: username => dispatch(LOGIN(username)),
+const mapStateToProps = state => ({
+  user: state.user,
 });
 
-const SignUp = ({ login }) => {
+
+const SignUp = ({ user }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
@@ -31,11 +31,6 @@ const SignUp = ({ login }) => {
     return null;
   };
 
-  const handleLogin = username => {
-    login(username);
-    setSwitcher(true);
-  };
-
   const handleSignUp = () => {
     if (password !== passwordConfirmation) {
       setError('Password and Password confirmation mustbe the same');
@@ -56,7 +51,7 @@ const SignUp = ({ login }) => {
       .then(data => {
         if (data.status === 'SUCCESS') {
           localStorage.setItem('token', data.data);
-          handleLogin(username);
+          setSwitcher(true);
         } else {
           setError('Please try again,Username taken');
         }
@@ -68,12 +63,14 @@ const SignUp = ({ login }) => {
   };
 
   const renderRedirect = () => {
+    let target;
     if (switcher === true) {
-      const target = `/profile/${username}`;
+      target = `/profile/${username}`;
       return <Redirect to={target} />;
     }
-    if (localStorage.getItem('token')) {
-      return <Redirect to="/profile/user" />;
+    if (user) {
+      target = `/profile/${user}`;
+      return <Redirect to={target} />;
     }
     return null;
   };
@@ -93,4 +90,4 @@ const SignUp = ({ login }) => {
   );
 };
 
-export default connect(null, mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps)(SignUp);
