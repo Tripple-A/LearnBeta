@@ -5,6 +5,7 @@ const SignIn = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [switcher, setSwitcher] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = e => {
     switch (e.target.name) {
@@ -36,7 +37,10 @@ const SignIn = () => {
         localStorage.setItem('token', data.jwt);
         setSwitcher(true);
       })
-      .catch(err => err);
+      .catch(err => {
+        setError('There was a problem signing you in,Please try again');
+        return err;
+      });
   };
 
   const renderRedirect = () => {
@@ -50,6 +54,7 @@ const SignIn = () => {
   return (
     <div>
       {renderRedirect()}
+      <h4>{error}</h4>
       <input name="username" type="text" placeholder="Username" onChange={e => handleChange(e)} />
       <br />
       <input name="password" type="password" placeholder="Password" onChange={e => handleChange(e)} />

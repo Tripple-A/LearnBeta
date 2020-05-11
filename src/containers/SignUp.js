@@ -12,6 +12,7 @@ const SignUp = ({ login }) => {
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const [switcher, setSwitcher] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = e => {
     switch (e.target.name) {
@@ -36,6 +37,10 @@ const SignUp = ({ login }) => {
   };
 
   const handleSignUp = () => {
+    if (password !== passwordConfirmation) {
+      setError('Password and Password confirmation mustbe the same');
+      return null;
+    }
     fetch('https://mycourses-api.herokuapp.com/api/users', {
       method: 'POST',
       headers: {
@@ -49,17 +54,22 @@ const SignUp = ({ login }) => {
       }),
     }).then(resp => resp.json())
       .then(data => {
-        localStorage.setItem('token', data.data);
-        handleLogin(username);
+        if (data.status === 'SUCCESS') {
+          localStorage.setItem('token', data.data);
+          handleLogin(username);
+        } else {
+          setError('Please try again,Username taken');
+        }
+      }).catch(err => {
+        setError('Please try again, something went wrong');
+        return err;
       });
+    return null;
   };
 
   const renderRedirect = () => {
     if (switcher === true) {
       const target = `/profile/${username}`;
-      setUsername('');
-      setPasswordConfirmation('');
-      setPassword('');
       return <Redirect to={target} />;
     }
     return null;
@@ -68,6 +78,7 @@ const SignUp = ({ login }) => {
   return (
     <div>
       {renderRedirect()}
+      <h4>{ error }</h4>
       <input name="username" type="text" placeholder="Username" onChange={e => handleChange(e)} />
       <br />
       <input name="password" type="password" placeholder="Password" onChange={e => handleChange(e)} />
