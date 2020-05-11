@@ -49,19 +49,20 @@ const SignUp = ({ login }) => {
       }),
     }).then(resp => resp.json())
       .then(data => {
-        console.log(data);
         localStorage.setItem('token', data.data);
         handleLogin(username);
       });
-    setUsername('');
-    setPasswordConfirmation('');
-    setPassword('');
   };
 
   const renderRedirect = () => {
     if (switcher === true) {
-      return <Redirect to='/' />
+      const target = `/profile/${username}`;
+      setUsername('');
+      setPasswordConfirmation('');
+      setPassword('');
+      return <Redirect to={target} />;
     }
+    return null;
   };
 
   return (
