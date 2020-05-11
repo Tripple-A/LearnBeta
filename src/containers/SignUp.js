@@ -1,4 +1,12 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { LOGIN } from '../actions';
+
+const mapDispatchToProps = dispatch => {
+  return {
+    login: username => dispatch(LOGIN(username)),
+  };
+};
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
@@ -22,6 +30,9 @@ const SignUp = () => {
     return null;
   };
 
+  const handleLogin = (username) => {
+
+  }
   const handleSignUp = () => {
     fetch('https://mycourses-api.herokuapp.com/api/users', {
       method: 'POST',
@@ -56,4 +67,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default connect(null, mapDispatchToProps)(SignUp);
