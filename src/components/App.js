@@ -19,18 +19,21 @@ const App = ({ login }) => {
   const [user, setUser] = useState(null);
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token) {
-      fetch('https://mycourses-api.herokuapp.com/api/auto_login', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }).then(resp => resp.json())
-        .then(data => {
-          login(data.username);
-          setUser(data.username);
-        })
-        .catch(err => console.log(err));
+    async function auth() {
+      if (token) {
+        await fetch('https://mycourses-api.herokuapp.com/api/auto_login', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }).then(resp => resp.json())
+          .then(data => {
+            login(data.username);
+            setUser(data.username);
+          })
+          .catch(err => err);
+      }
     }
+    auth();
   }, []);
 
   const renderRedirect = () => {
