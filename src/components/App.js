@@ -32,7 +32,7 @@ const App = ({ login, addCourses }) => {
           .then(data => {
             if (data.status === 200) {
               login(data.user.username);
-              setUser(data.username);
+              setUser(data.user.username);
               addCourses(data.courses);
             }
           })
