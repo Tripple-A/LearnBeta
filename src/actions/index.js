@@ -3,5 +3,10 @@ const LOGIN = username => ({
   username,
 });
 
+const ADD = courses => ({
+  type: 'ADD COURSES',
+  courses,
+});
 
-export { LOGIN };
+
+export { LOGIN, ADD };

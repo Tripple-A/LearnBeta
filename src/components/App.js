@@ -8,14 +8,17 @@ import Home from './Home';
 import SignIn from '../containers/SignIn';
 import SignUp from '../containers/SignUp';
 import Dashboard from '../containers/Dashboard';
+import Favorites from './Favorites';
+import { LOGIN, ADD } from '../actions';
+import Detail from '../containers/Details';
 
-import { LOGIN } from '../actions';
 
 const mapDispatchToProps = dispatch => ({
   login: username => dispatch(LOGIN(username)),
+  addCourses: courses => dispatch(ADD(courses)),
 });
 
-const App = ({ login }) => {
+const App = ({ login, addCourses }) => {
   const [user, setUser] = useState(null);
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -27,8 +30,11 @@ const App = ({ login }) => {
           },
         }).then(resp => resp.json())
           .then(data => {
-            login(data.username);
-            setUser(data.username);
+            if (data.status === 200) {
+              login(data.user.username);
+              setUser(data.username);
+              addCourses(data.courses);
+            }
           })
           .catch(err => err);
       }
@@ -53,7 +59,9 @@ const App = ({ login }) => {
         <Route exact path="/" component={Home} />
         <Route exact path="/signIn" component={SignIn} />
         <Route exact path="/signUp" component={SignUp} />
+        <Route exact path="/favs/:username" component={Favorites} />
         <Route exact path="/profile/:username" component={Dashboard} />
+        <Route exact path="/detail/:id" component={Detail} />
       </Switch>
     </BrowserRouter>
   );
