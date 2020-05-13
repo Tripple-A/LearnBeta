@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { LOGIN } from '../actions';
 
 const mapStateToProps = state => ({
   user: state.user,
 });
 
+const mapDispatchToProps = dispatch => ({
+  login: username => dispatch(LOGIN(username)),
+});
 
-const SignUp = ({ user }) => {
+const SignUp = ({ user, login }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
@@ -51,6 +55,7 @@ const SignUp = ({ user }) => {
       .then(data => {
         if (data.status === 'SUCCESS') {
           localStorage.setItem('token', data.data);
+          login(username);
           setSwitcher(true);
         } else {
           setError('Please try again,Username taken');
@@ -63,13 +68,8 @@ const SignUp = ({ user }) => {
   };
 
   const renderRedirect = () => {
-    let target;
-    if (switcher === true) {
-      target = `/profile/${username}`;
-      return <Redirect to={target} />;
-    }
-    if (user) {
-      target = `/profile/${user}`;
+    if (user && switcher) {
+      const target = `/profile/${user}`;
       return <Redirect to={target} />;
     }
     return null;
@@ -90,4 +90,4 @@ const SignUp = ({ user }) => {
   );
 };
 
-export default connect(mapStateToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

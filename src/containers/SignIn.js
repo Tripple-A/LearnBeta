@@ -46,7 +46,7 @@ const SignIn = ({ user, login }) => {
       .then(data => {
         localStorage.setItem('token', data.jwt);
         login(username);
-        // setSwitcher(true);
+        setSwitcher(true);
       })
       .catch(err => {
         setError('There was a problem signing you in,Please try again');
@@ -55,13 +55,8 @@ const SignIn = ({ user, login }) => {
   };
 
   const renderRedirect = () => {
-    let target;
-    if (switcher === true) {
-      target = `/profile/${username}`;
-      return <Redirect to={target} />;
-    }
-    if (user) {
-      target = `/profile/${user}`;
+    if (user && switcher) {
+      const target = `/profile/${user}`;
       return <Redirect to={target} />;
     }
     return null;
