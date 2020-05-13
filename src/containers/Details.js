@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
 const Detail = ({ courses, match, user }) => {
   const [course, setCourse] = useState(null);
   const [info, setInfo] = useState('');
+  const [style, setStyle] = useState({ display: 'none' });
   const courseId = parseInt(match.params.id);
   const addFav = () => {
     console.log(user);
@@ -50,6 +51,17 @@ const Detail = ({ courses, match, user }) => {
     wait();
   }, []);
 
+  const seeMore = () => {
+    const btn = document.getElementById('toggle');
+    if(btn.textContent === 'v') {
+        setStyle({display: 'block'});
+        btn.textContent = '^';
+    }else{
+        setStyle({display: 'none'});
+        btn.textContent = 'v';
+    }
+  };
+
   if (course !== null) {
     return (
       <div>
@@ -61,8 +73,7 @@ const Detail = ({ courses, match, user }) => {
           {course.shortDescription.split('.')[0]}
           .
         </p>
-        <button type="button">v</button>
-        <div id="seeMore">
+        <div id="seeMore" style={style}>
           <p>
             Provider:
             {course.provider}
@@ -100,8 +111,11 @@ const Detail = ({ courses, match, user }) => {
             {course.duration}
           </p>
         </div>
+        <button type="button" onClick={seeMore} id="toggle">v</button>
+        <div>
         <button type="button" onClick={addFav}>Add to Favorites</button>
         <button type="button"><a target="_blank" rel="noopener noreferrer" href={course.url}>Take Course</a></button>
+        </div>
       </div>
     );
   }
