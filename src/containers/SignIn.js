@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { LOGIN } from '../actions';
@@ -76,4 +77,8 @@ const SignIn = ({ user, login }) => {
   );
 };
 
+SignIn.propTypes = {
+  user: PropTypes.string.isRequired,
+  login: PropTypes.func.isRequired,
+};
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

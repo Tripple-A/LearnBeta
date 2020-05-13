@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import '../style/App.css';
 import {
   BrowserRouter, Route, Switch, Redirect,
@@ -86,5 +87,9 @@ const App = ({ login, addCourses }) => {
   );
 };
 
+App.propTypes = {
+  addCourses: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired,
+};
 
 export default connect(null, mapDispatchToProps)(App);

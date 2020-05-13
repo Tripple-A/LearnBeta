@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { LOGIN } from '../actions';
@@ -88,6 +89,11 @@ const SignUp = ({ user, login }) => {
       <button onClick={handleSignUp} type="submit"> Sign Up </button>
     </div>
   );
+};
+
+SignUp.propTypes = {
+  user: PropTypes.string.isRequired,
+  login: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

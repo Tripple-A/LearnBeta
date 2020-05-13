@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const mapStateToProps = state => ({
   courses: state.courses,
@@ -128,6 +129,16 @@ const Detail = ({ courses, match, user }) => {
   return (
     <div>loading....</div>
   );
+};
+
+Detail.propTypes = {
+  courses: PropTypes.arrayOf(PropTypes.object).isRequired,
+  user: PropTypes.string.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }),
+  }).isRequired,
 };
 
 export default connect(mapStateToProps)(Detail);

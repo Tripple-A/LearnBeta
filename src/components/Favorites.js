@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import Course from './Course';
 
@@ -28,6 +29,14 @@ const Favorites = ({ match }) => {
       {typeof courses !== 'string' ? courses.map((item, i) => <Course key={i} course={item} />) : 'You have no favourite courses'}
     </div>
   );
+};
+
+Favorites.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      username: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
 };
 
 export default Favorites;

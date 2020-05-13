@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Course = ({ course }) => (
   <Link to={`/detail/${course.id}`}>
     <div>
 
-      <img src={course.imgUrl} alt="couse-image" />
+      <img src={course.imgUrl} alt="course template" />
       <h5>
         Title:
         {course.title}
@@ -21,5 +22,20 @@ const Course = ({ course }) => (
     </div>
   </Link>
 );
+
+Course.propTypes = {
+  course: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    imgUrl: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    provider: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+  }).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      username: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
+};
 
 export default Course;

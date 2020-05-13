@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import Course from '../components/Course';
@@ -68,10 +69,22 @@ const Dashboard = ({
         <h3>Courses</h3>
         <h3>Menu Icon</h3>
         <Filter />
-        {selectedCourses(filter).map((item, i) => <Course key={i} course={item} />)}
+        {selectedCourses(filter).map(item => <Course key={item.id} course={item} />)}
       </div>
     </div>
   );
+};
+
+Dashboard.propTypes = {
+  courses: PropTypes.arrayOf(PropTypes.object).isRequired,
+  filter: PropTypes.string.isRequired,
+  addCourses: PropTypes.func.isRequired,
+  logout: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      username: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
