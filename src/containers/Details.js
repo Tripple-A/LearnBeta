@@ -12,7 +12,7 @@ const Detail = ({ courses, match, user }) => {
   const [course, setCourse] = useState(null);
   const [info, setInfo] = useState('');
   const [style, setStyle] = useState({ display: 'none' });
-  const courseId = parseInt(match.params.id);
+  const courseId = parseInt(match.params.id, 10);
   const history = useHistory();
   const addFav = () => {
     async function Add() {
@@ -49,7 +49,7 @@ const Detail = ({ courses, match, user }) => {
       }
     }
     wait();
-  }, []);
+  }, [courseId, courses]);
 
   const seeMore = () => {
     const btn = document.getElementById('toggle');
@@ -133,12 +133,16 @@ const Detail = ({ courses, match, user }) => {
 
 Detail.propTypes = {
   courses: PropTypes.arrayOf(PropTypes.object).isRequired,
-  user: PropTypes.string.isRequired,
+  user: PropTypes.string,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.number.isRequired,
     }),
   }).isRequired,
+};
+
+Detail.defaultProps = {
+  user: null,
 };
 
 export default connect(mapStateToProps)(Detail);

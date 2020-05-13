@@ -17,7 +17,7 @@ const Favorites = ({ match }) => {
         .catch(err => err);
     }
     getCourses();
-  }, []);
+  }, [name]);
   return (
     <div>
       <input
@@ -26,7 +26,7 @@ const Favorites = ({ match }) => {
         onClick={() => history.go(-1)}
       />
       <h4>Favorite Courses</h4>
-      {typeof courses !== 'string' ? courses.map((item, i) => <Course key={i} course={item} />) : 'You have no favourite courses'}
+      {typeof courses !== 'string' ? courses.map(item => <Course key={item.id} course={item} />) : 'You have no favourite courses'}
     </div>
   );
 };

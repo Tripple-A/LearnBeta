@@ -2,17 +2,14 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { LOGIN } from '../actions';
+
 
 const mapStateToProps = state => ({
   user: state.user,
 });
 
-const mapDispatchToProps = dispatch => ({
-  login: username => dispatch(LOGIN(username)),
-});
 
-const SignIn = ({ user, login }) => {
+const SignIn = ({ user, loggedIn }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [switcher, setSwitcher] = useState(false);
@@ -46,7 +43,7 @@ const SignIn = ({ user, login }) => {
     }).then(resp => resp.json())
       .then(data => {
         localStorage.setItem('token', data.jwt);
-        login(username);
+        loggedIn(username);
         setSwitcher(true);
       })
       .catch(err => {
@@ -56,7 +53,7 @@ const SignIn = ({ user, login }) => {
   };
 
   const renderRedirect = () => {
-    if (user || switcher) {
+    if (user && switcher) {
       const target = `/profile/${user}`;
       return <Redirect to={target} />;
     }
@@ -78,7 +75,11 @@ const SignIn = ({ user, login }) => {
 };
 
 SignIn.propTypes = {
-  user: PropTypes.string.isRequired,
-  login: PropTypes.func.isRequired,
+  user: PropTypes.string,
+  loggedIn: PropTypes.func.isRequired,
 };
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+
+SignIn.defaultProps = {
+  user: null,
+};
+export default connect(mapStateToProps)(SignIn);

@@ -33,7 +33,7 @@ const Dashboard = ({
       }
     }
     wait();
-  }, []);
+  }, [addCourses, courses.length]);
 
   const selectedCourses = word => {
     if (word.length > 0) {

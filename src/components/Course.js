@@ -35,7 +35,11 @@ Course.propTypes = {
     params: PropTypes.shape({
       username: PropTypes.string.isRequired,
     }),
-  }).isRequired,
+  }),
+};
+
+Course.defaultProps = {
+  match: null,
 };
 
 export default Course;

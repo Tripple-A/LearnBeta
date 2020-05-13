@@ -2,21 +2,16 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { LOGIN } from '../actions';
 
 const mapStateToProps = state => ({
   user: state.user,
 });
 
-const mapDispatchToProps = dispatch => ({
-  login: username => dispatch(LOGIN(username)),
-});
 
-const SignUp = ({ user, login }) => {
+const SignUp = ({ user, loggedIn }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
-  const [switcher, setSwitcher] = useState(false);
   const [error, setError] = useState('');
 
   const handleChange = e => {
@@ -56,8 +51,7 @@ const SignUp = ({ user, login }) => {
       .then(data => {
         if (data.status === 'SUCCESS') {
           localStorage.setItem('token', data.data);
-          login(username);
-          setSwitcher(true);
+          loggedIn(username);
         } else {
           setError('Please try again,Username taken');
         }
@@ -69,7 +63,7 @@ const SignUp = ({ user, login }) => {
   };
 
   const renderRedirect = () => {
-    if (user || switcher) {
+    if (user) {
       const target = `/profile/${user}`;
       return <Redirect to={target} />;
     }
@@ -92,8 +86,13 @@ const SignUp = ({ user, login }) => {
 };
 
 SignUp.propTypes = {
-  user: PropTypes.string.isRequired,
-  login: PropTypes.func.isRequired,
+  user: PropTypes.string,
+  loggedIn: PropTypes.func,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+SignUp.defaultProps = {
+  user: null,
+  loggedIn: undefined,
+};
+
+export default connect(mapStateToProps)(SignUp);

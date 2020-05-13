@@ -22,6 +22,11 @@ const mapDispatchToProps = dispatch => ({
 const App = ({ login, addCourses }) => {
   const [user, setUser] = useState(null);
   const [loaded, setLoaded] = useState(false);
+  const loggedIn = username => {
+    setUser(username);
+    setLoaded(true);
+  };
+
   useEffect(() => {
     const token = localStorage.getItem('token');
     async function auth() {
@@ -46,7 +51,7 @@ const App = ({ login, addCourses }) => {
       }
     }
     auth();
-  }, []);
+  }, [addCourses, login]);
 
   const renderRedirect = () => {
     let target;
@@ -79,8 +84,17 @@ const App = ({ login, addCourses }) => {
     <div>
       <BrowserRouter>
         <Route exact path="/" component={Home} />
-        <Route exact path="/signIn" component={SignIn} />
-        <Route exact path="/signUp" component={SignUp} />
+        <Route
+          exact
+          path="/signIn"
+          render={() => <SignIn loggedIn={loggedIn} />}
+        />
+        <Route exact path="/signIns" component={SignIn} loggedIn={loggedIn} />
+        <Route
+          exact
+          path="/signUp"
+          render={() => <SignUp loggedIn={loggedIn} />}
+        />
         <Redirect from="*" to="/" />
       </BrowserRouter>
     </div>
