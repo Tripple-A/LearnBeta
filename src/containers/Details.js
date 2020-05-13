@@ -56,47 +56,50 @@ const Detail = ({ courses, match, user }) => {
         <h5>{info}</h5>
         <h5>{course.title}</h5>
         <img alt="course-img" src={course.imgUrl} />
+        <h3>About this course:</h3>
         <p>
-          Provider:
-          {course.provider}
-        </p>
-        <p>
-          Author:
-          {course.author}
-        </p>
-        <p>
-          Level:
-          {course.level}
-        </p>
-        <p>
-          Medium:
-          {course.medium}
-        </p>
-        <p>
-          Language:
-          {course.language}
-        </p>
-        <p>
-          Category:
-          {course.category}
-        </p>
-        <p>
-          Broader Category:
-          {course.broad_category}
-        </p>
-        <p>
-          Short Description:
           {course.shortDescription.split('.')[0]}
           .
         </p>
-        <p>
-          Ratings:
-          {course.providerRatings}
-        </p>
-        <p>
-          Duration:
-          {course.duration}
-        </p>
+        <button type="button">v</button>
+        <div id="seeMore">
+          <p>
+            Provider:
+            {course.provider}
+          </p>
+          <p>
+            Author:
+            {course.author}
+          </p>
+          <p>
+            Level:
+            {course.level}
+          </p>
+          <p>
+            Medium:
+            {course.medium}
+          </p>
+          <p>
+            Language:
+            {course.language}
+          </p>
+          <p>
+            Category:
+            {course.category}
+          </p>
+          <p>
+            Broader Category:
+            {course.broad_category}
+          </p>
+          <p>
+            Ratings:
+            {course.providerRatings}
+          </p>
+          <p>
+            Duration:
+            {course.duration}
+          </p>
+        </div>
         <button type="button" onClick={addFav}>Add to Favorites</button>
         <button type="button"><a target="_blank" rel="noopener noreferrer" href={course.url}>Take Course</a></button>
       </div>

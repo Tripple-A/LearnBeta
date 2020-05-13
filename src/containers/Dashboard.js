@@ -13,7 +13,9 @@ const mapDispatchToProps = dispatch => ({
   addCourses: courses => dispatch(ADD(courses)),
 });
 
-const Dashboard = ({ match, courses, logout, addCourses }) => {
+const Dashboard = ({
+  match, courses, logout, addCourses,
+}) => {
   const [logOut, setLogOut] = useState('false');
   const name = match.params.username;
   useEffect(() => {
