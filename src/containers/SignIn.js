@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { LOGIN } from '../actions';
 
 const mapStateToProps = state => ({
   user: state.user,
 });
 
-const SignIn = ({ user }) => {
+const mapDispatchToProps = dispatch => ({
+  login: username => dispatch(LOGIN(username)),
+});
+
+const SignIn = ({ user, login }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [switcher, setSwitcher] = useState(false);
@@ -40,7 +45,8 @@ const SignIn = ({ user }) => {
     }).then(resp => resp.json())
       .then(data => {
         localStorage.setItem('token', data.jwt);
-        setSwitcher(true);
+        login(username);
+        // setSwitcher(true);
       })
       .catch(err => {
         setError('There was a problem signing you in,Please try again');
@@ -75,4 +81,4 @@ const SignIn = ({ user }) => {
   );
 };
 
-export default connect(mapStateToProps)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

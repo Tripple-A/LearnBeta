@@ -3,10 +3,14 @@ const LOGIN = username => ({
   username,
 });
 
+const LOGOUT = {
+  type: 'LOGOUT USER',
+};
+
 const ADD = courses => ({
   type: 'ADD COURSES',
   courses,
 });
 
 
-export { LOGIN, ADD };
+export { LOGIN, ADD, LOGOUT };

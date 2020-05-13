@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 
@@ -8,9 +8,13 @@ const mapStateToProps = state => ({
 });
 
 const Detail = ({ courses, match, user }) => {
+  const [course, setCourse] = useState(null);
+  const [info, setInfo] = useState('');
   const courseId = parseInt(match.params.id);
   const addFav = () => {
-    async function getFavs() {
+    console.log(user);
+    console.log(courseId);
+    async function Add() {
       await fetch('https://mycourses-api.herokuapp.com/api/favorites', {
         method: 'POST',
         mode: 'cors',
@@ -24,76 +28,82 @@ const Detail = ({ courses, match, user }) => {
       })
         .then(resp => resp.json())
         .then(data => {
-          console.log(data);
+          setInfo(data.data);
         })
-        .catch(err => err);
+        .catch(err => console.log(err));
     }
-    getFavs();
+    Add();
   };
 
   useEffect(() => {
     async function wait() {
-      await courses;
+      if (courses.length === 0) {
+        await fetch(`https://mycourses-api.herokuapp.com/api/courses/${courseId}`)
+          .then(resp => resp.json())
+          .then(data => {
+            setCourse(data.data);
+          }).catch(err => err);
+      } else {
+        setCourse(courses.filter(item => item.id === courseId)[0]);
+      }
     }
     wait();
-  }, [courses.length]);
-  const course = courses.filter(item => item.id === courseId);
-  if (courses.length > 0) {
+  }, []);
+
+  if (course !== null) {
     return (
       <div>
-        <h5>{course[0].title}</h5>
-        <img alt="course-img" src={course[0].imgUrl} />
+        <h5>{info}</h5>
+        <h5>{course.title}</h5>
+        <img alt="course-img" src={course.imgUrl} />
         <p>
           Provider:
-          {course[0].provider}
+          {course.provider}
         </p>
         <p>
           Author:
-          {course[0].author}
+          {course.author}
         </p>
         <p>
           Level:
-          {course[0].level}
+          {course.level}
         </p>
         <p>
           Medium:
-          {course[0].medium}
+          {course.medium}
         </p>
         <p>
           Language:
-          {course[0].language}
+          {course.language}
         </p>
         <p>
           Category:
-          {course[0].category}
+          {course.category}
         </p>
         <p>
           Broader Category:
-          {course[0].broad_category}
+          {course.broad_category}
         </p>
         <p>
           Short Description:
-          {course[0].shortDescription.split('.')[0]}
+          {course.shortDescription.split('.')[0]}
           .
         </p>
         <p>
           Ratings:
-          {course[0].providerRatings}
+          {course.providerRatings}
         </p>
         <p>
           Duration:
-          {course[0].duration}
+          {course.duration}
         </p>
         <button type="button" onClick={addFav}>Add to Favorites</button>
-        <button type="button"><a target="_blank" rel="noopener noreferrer" href={course[0].url}>Take Course</a></button>
+        <button type="button"><a target="_blank" rel="noopener noreferrer" href={course.url}>Take Course</a></button>
       </div>
     );
   }
   return (
-    <div>
-      <h5>hello</h5>
-
-    </div>
+    <div>loading....</div>
   );
 };
 

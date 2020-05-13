@@ -20,6 +20,7 @@ const mapDispatchToProps = dispatch => ({
 
 const App = ({ login, addCourses }) => {
   const [user, setUser] = useState(null);
+  const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     const token = localStorage.getItem('token');
     async function auth() {
@@ -32,11 +33,15 @@ const App = ({ login, addCourses }) => {
           .then(data => {
             if (data.status === 200) {
               login(data.user.username);
+              setLoaded(true);
               setUser(data.user.username);
               addCourses(data.courses);
             }
           })
-          .catch(err => err);
+          .catch(err => {
+            setLoaded(true);
+            return err;
+          });
       }
     }
     auth();
@@ -44,9 +49,12 @@ const App = ({ login, addCourses }) => {
 
   const renderRedirect = () => {
     let target;
-    if (user) {
+    if (user && loaded) {
       target = `/profile/${user}`;
       return <Redirect to={target} />;
+    }
+    if (!user && loaded) {
+      return <Redirect to="/" />;
     }
     return null;
   };
@@ -66,5 +74,6 @@ const App = ({ login, addCourses }) => {
     </BrowserRouter>
   );
 };
+
 
 export default connect(null, mapDispatchToProps)(App);
