@@ -4,24 +4,45 @@ import { Redirect } from 'react-router';
 
 const mapStateToProps = state => ({
   courses: state.courses,
+  user: state.user,
 });
 
-const Detail = ({ courses, match }) => {
+const Detail = ({ courses, match, user }) => {
+  const courseId = parseInt(match.params.id);
   const addFav = () => {
-    alert('course added to favorites');
+    async function getFavs() {
+      await fetch('https://mycourses-api.herokuapp.com/api/favorites', {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: user,
+          course_id: courseId,
+        }),
+      })
+        .then(resp => resp.json())
+        .then(data => {
+          console.log(data);
+        })
+        .catch(err => err);
+    }
+    getFavs();
   };
+
   useEffect(() => {
     async function wait() {
       await courses;
     }
     wait();
   }, [courses.length]);
-  const course = courses.filter(item => item.id === parseInt(match.params.id));
+  const course = courses.filter(item => item.id === courseId);
   if (courses.length > 0) {
     return (
       <div>
         <h5>{course[0].title}</h5>
-        <img src={course[0].imgUrl} />
+        <img alt="course-img" src={course[0].imgUrl} />
         <p>
           Provider:
           {course[0].provider}
@@ -64,7 +85,7 @@ const Detail = ({ courses, match }) => {
           {course[0].duration}
         </p>
         <button type="button" onClick={addFav}>Add to Favorites</button>
-        <button type="button"><a href={course[0].url}>Take Course</a></button>
+        <button type="button"><a target="_blank" rel="noopener noreferrer" href={course[0].url}>Take Course</a></button>
       </div>
     );
   }
