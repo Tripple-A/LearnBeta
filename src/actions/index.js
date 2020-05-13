@@ -12,5 +12,12 @@ const ADD = courses => ({
   courses,
 });
 
+const FILTER = word => ({
+  type: 'PUT FILTER',
+  word,
+});
 
-export { LOGIN, ADD, LOGOUT };
+
+export {
+  LOGIN, ADD, LOGOUT, FILTER,
+};

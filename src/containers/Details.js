@@ -66,12 +66,12 @@ const Detail = ({ courses, match, user }) => {
       <div>
         <h5>{info}</h5>
         <div>
-        <input
-        type="button"
-        value="<"
-        onClick={() => history.goBack()}
-      />
-        <h5>{course.title}</h5>
+          <input
+            type="button"
+            value="<"
+            onClick={() => history.goBack()}
+          />
+          <h5>{course.title}</h5>
         </div>
         <img alt="course-img" src={course.imgUrl} />
         <h3>About this course:</h3>

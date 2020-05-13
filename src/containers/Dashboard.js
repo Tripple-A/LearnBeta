@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import Course from '../components/Course';
 import { LOGOUT, ADD } from '../actions';
+import Filter from './Filter';
 
 const mapStateToProps = state => ({
   courses: state.courses,
+  filter: state.filter,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -14,10 +16,11 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const Dashboard = ({
-  match, courses, logout, addCourses,
+  match, courses, logout, addCourses, filter,
 }) => {
   const [logOut, setLogOut] = useState('false');
   const name = match.params.username;
+
   useEffect(() => {
     async function wait() {
       if (courses.length === 0) {
@@ -31,6 +34,12 @@ const Dashboard = ({
     wait();
   }, []);
 
+  const selectedCourses = word => {
+    if (word.length > 0) {
+      return courses.filter(item => item.broad_category.toLowerCase().includes(word.toLowerCase()));
+    }
+    return courses;
+  };
   const handleSignOut = () => {
     localStorage.removeItem('token');
     logout();
@@ -42,6 +51,7 @@ const Dashboard = ({
     }
     return null;
   };
+
   return (
     <div>
       {renderRedirect()}
@@ -57,7 +67,8 @@ const Dashboard = ({
       <div>
         <h3>Courses</h3>
         <h3>Menu Icon</h3>
-        {courses.map((item, i) => <Course key={i} course={item} />)}
+        <Filter />
+        {selectedCourses(filter).map((item, i) => <Course key={i} course={item} />)}
       </div>
     </div>
   );
