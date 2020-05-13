@@ -68,7 +68,7 @@ const SignUp = ({ user, login }) => {
   };
 
   const renderRedirect = () => {
-    if (user && switcher) {
+    if (user || switcher) {
       const target = `/profile/${user}`;
       return <Redirect to={target} />;
     }

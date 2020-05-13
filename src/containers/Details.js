@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 const mapStateToProps = state => ({
   courses: state.courses,
@@ -12,9 +12,8 @@ const Detail = ({ courses, match, user }) => {
   const [info, setInfo] = useState('');
   const [style, setStyle] = useState({ display: 'none' });
   const courseId = parseInt(match.params.id);
+  const history = useHistory();
   const addFav = () => {
-    console.log(user);
-    console.log(courseId);
     async function Add() {
       await fetch('https://mycourses-api.herokuapp.com/api/favorites', {
         method: 'POST',
@@ -31,7 +30,7 @@ const Detail = ({ courses, match, user }) => {
         .then(data => {
           setInfo(data.data);
         })
-        .catch(err => console.log(err));
+        .catch(err => err);
     }
     Add();
   };
@@ -66,7 +65,14 @@ const Detail = ({ courses, match, user }) => {
     return (
       <div>
         <h5>{info}</h5>
+        <div>
+        <input
+        type="button"
+        value="<"
+        onClick={() => history.goBack()}
+      />
         <h5>{course.title}</h5>
+        </div>
         <img alt="course-img" src={course.imgUrl} />
         <h3>About this course:</h3>
         <p>
