@@ -53,12 +53,12 @@ const Detail = ({ courses, match, user }) => {
 
   const seeMore = () => {
     const btn = document.getElementById('toggle');
-    if(btn.textContent === 'v') {
-        setStyle({display: 'block'});
-        btn.textContent = '^';
-    }else{
-        setStyle({display: 'none'});
-        btn.textContent = 'v';
+    if (btn.textContent === 'v') {
+      setStyle({ display: 'block' });
+      btn.textContent = '^';
+    } else {
+      setStyle({ display: 'none' });
+      btn.textContent = 'v';
     }
   };
 
@@ -113,8 +113,8 @@ const Detail = ({ courses, match, user }) => {
         </div>
         <button type="button" onClick={seeMore} id="toggle">v</button>
         <div>
-        <button type="button" onClick={addFav}>Add to Favorites</button>
-        <button type="button"><a target="_blank" rel="noopener noreferrer" href={course.url}>Take Course</a></button>
+          <button type="button" onClick={addFav}>Add to Favorites</button>
+          <button type="button"><a target="_blank" rel="noopener noreferrer" href={course.url}>Take Course</a></button>
         </div>
       </div>
     );

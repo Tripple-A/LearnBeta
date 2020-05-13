@@ -60,30 +60,30 @@ const App = ({ login, addCourses }) => {
   };
 
   if (user && loaded) {
-  return (
-    <BrowserRouter>
-      {renderRedirect()}
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/signIn" component={SignIn} />
-        <Route exact path="/signUp" component={SignUp} />
-        <Route exact path="/favs/:username" component={Favorites} />
-        <Route exact path="/profile/:username" component={Dashboard} />
-        <Route exact path="/detail/:id" component={Detail} />
-      </Switch>
-    </BrowserRouter>
-  )} else {
     return (
-      <div>
-        <BrowserRouter>
+      <BrowserRouter>
+        {renderRedirect()}
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/signIn" component={SignIn} />
+          <Route exact path="/signUp" component={SignUp} />
+          <Route exact path="/favs/:username" component={Favorites} />
+          <Route exact path="/profile/:username" component={Dashboard} />
+          <Route exact path="/detail/:id" component={Detail} />
+        </Switch>
+      </BrowserRouter>
+    );
+  }
+  return (
+    <div>
+      <BrowserRouter>
         <Route exact path="/" component={Home} />
         <Route exact path="/signIn" component={SignIn} />
         <Route exact path="/signUp" component={SignUp} />
         <Redirect from="*" to="/" />
-        </BrowserRouter>
-      </div>
-    )
-  };
+      </BrowserRouter>
+    </div>
+  );
 };
 
 
