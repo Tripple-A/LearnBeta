@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
@@ -71,16 +71,24 @@ const SignUp = ({ user, loggedIn }) => {
   };
 
   return (
-    <div>
+    <div className="landing-page">
       {renderRedirect()}
       <h4>{ error }</h4>
-      <input name="username" type="text" placeholder="Username" onChange={e => handleChange(e)} />
+      <div class="intro">
+      <p className="sign">Sign Up</p>
+      <p>Hello there! Sign up and start taking software development courses</p>
+      </div>
+      <input className="usap" name="username" type="text" placeholder="Username" onChange={e => handleChange(e)} />
       <br />
-      <input name="password" type="password" placeholder="Password" onChange={e => handleChange(e)} />
+      <input className="usap" name="password" type="password" placeholder="Password" onChange={e => handleChange(e)} />
       <br />
-      <input name="confirmation" type="password" placeholder="Password Confirmation" onChange={e => handleChange(e)} />
+      <input className="usap" name="confirmation" type="password" placeholder="Password Confirmation" onChange={e => handleChange(e)} />
       <br />
-      <button onClick={handleSignUp} type="submit"> Sign Up </button>
+      <button className="auth" onClick={handleSignUp} type="submit"> Sign Up </button>
+      <div className="notSigned">
+      <p>Signed up? <Link to="/signIn"> Sign in here</Link> </p>
+    </div>
+    
     </div>
   );
 };
