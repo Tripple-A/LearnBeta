@@ -45,6 +45,8 @@ const SignIn = ({ user, loggedIn }) => {
         localStorage.setItem('token', data.jwt);
         loggedIn(username);
         setSwitcher(true);
+        setPassword('');
+        setUsername('');
       })
       .catch(err => {
         setError('There was a problem signing you in,Please try again');
@@ -63,7 +65,7 @@ const SignIn = ({ user, loggedIn }) => {
   return (
     <div className="landing-page">
       {renderRedirect()}
-      <h4>{error}</h4>
+      <h4 className="error">{error}</h4>
       <div class="intro">
       <p className="sign">Sign In</p>
       <p>Hello there! Sign in and start taking software development courses</p>

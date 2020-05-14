@@ -52,6 +52,8 @@ const SignUp = ({ user, loggedIn }) => {
         if (data.status === 'SUCCESS') {
           localStorage.setItem('token', data.data);
           loggedIn(username);
+          setPassword('');
+          setUsername('');
         } else {
           setError('Please try again,Username taken');
         }
@@ -73,7 +75,7 @@ const SignUp = ({ user, loggedIn }) => {
   return (
     <div className="landing-page">
       {renderRedirect()}
-      <h4>{ error }</h4>
+      <h4 className="error">{ error }</h4>
       <div class="intro">
       <p className="sign">Sign Up</p>
       <p>Hello there! Sign up and start taking software development courses</p>

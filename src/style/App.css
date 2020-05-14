@@ -28,7 +28,7 @@ body{
 .intro{
   width:60%;
   text-align: center;
-  padding-top: 20%;
+  padding-top: 15%;
   margin: 0px auto;
   font-size: 20px;
 }
@@ -43,7 +43,7 @@ body{
 }
 
 .notSigned{
-  padding-top:35%
+  margin-top:20%
 }
 
 .usap:focus{
@@ -64,4 +64,10 @@ body{
 
 .auth:focus{
   outline: none;
+}
+
+.error{
+  color: red;
+  padding-top:20px;
+  font-size: 16px;
 }
