@@ -12,6 +12,10 @@
     padding-right:15px;
 }
 
+.detailTop h5{
+    margin:10px;
+}
+
 .backBtn{
     border:none;
     background-color: #F7F5FA;
@@ -41,6 +45,7 @@
 .aboutTitle{
     color:rgb(58, 58, 59);
     font-size: 16px;
+
 }
 
 .aboutDesc{

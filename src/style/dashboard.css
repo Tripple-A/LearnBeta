@@ -101,7 +101,7 @@
     height: 31px;
 }
 
-.searchDiv button:focus{
+.searchDiv button:focus, .searchBox{
   outline: none;
 }
 
