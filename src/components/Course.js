@@ -6,7 +6,7 @@ const Course = ({ course }) => (
   <Link to={`/detail/${course.id}`}>
     <div>
 
-      <img src={course.imgUrl} alt="course template" />
+      <img className="courseImg" src={course.imgUrl} alt="course template" />
       <h5>
         Title:
         {course.title}

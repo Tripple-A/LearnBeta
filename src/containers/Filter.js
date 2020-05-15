@@ -8,7 +8,10 @@ const mapDispatchToProps = dispatch => ({
   addFilter: word => dispatch(FILTER(word)),
 });
 const Filter = ({ addFilter }) => (
+  <div>
+  <i className="fa fa-search" aria-hidden="true" />
   <input type="text" onChange={e => addFilter(e.target.value)} />
+  </div>
 );
 
 Filter.propTypes = {

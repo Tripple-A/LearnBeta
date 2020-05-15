@@ -53,23 +53,38 @@ const Dashboard = ({
     return null;
   };
 
-  return (
-    <div>
-      {renderRedirect()}
-      <img alt="avatar" src="https://img.icons8.com/doodle/56/000000/user-female-skin-type-5--v1.png" />
-      {' '}
-      <br />
-      {name}
-      <br />
-      <Link to={`/favs/${name}`}>My favorites</Link>
-      <br />
-      <button type="button" onClick={handleSignOut}>Sign Out</button>
-      <br />
-      <div>
-        <i className="fa fa-bars" aria-hidden="true" />
-        <h3>Courses</h3>
-        <i className="fa fa-search" aria-hidden="true" />
+  let count = 0;
 
+  const openNav = () => {
+    count += 1;
+    if (count % 2 === 1) {
+      document.getElementById('menu').style.width = '200px';
+      document.getElementById('main').style.marginLeft = '200px';
+      document.getElementById('main').style.marginTop = '20px';
+    } else {
+      document.getElementById('menu').style.width = '0';
+      document.getElementById('main').style.marginLeft = '0';
+      document.getElementById('main').style.marginTop = '-5px';
+    }
+  };
+
+  return (
+    <div className="dashboard">
+      {renderRedirect()}
+      <div id="menu" className="menu">
+        <img alt="avatar" src="https://img.icons8.com/doodle/56/000000/user-female-skin-type-5--v1.png" />
+        {' '}
+        <br />
+        {name}
+        <br />
+        <Link to={`/favs/${name}`}>My favorites</Link>
+        <br />
+        <button type="button" onClick={handleSignOut}>Sign Out</button>
+        <br />
+      </div>
+      <div id="main" className="main">
+        <i className="fa fa-bars" aria-hidden="true" onClick={openNav} />
+        <h3>Courses</h3>
         <Filter />
         {selectedCourses(filter).map(item => <Course key={item.id} course={item} />)}
       </div>

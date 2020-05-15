@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import '../style/App.css';
 import '../style/details.css';
+import '../style/dashboard.css';
 import {
   BrowserRouter, Route, Switch, Redirect,
 } from 'react-router-dom';
