@@ -72,7 +72,7 @@ const SignIn = ({ user, loggedIn }) => {
       </div>
       <input className="usap" name="username" type="text" placeholder="Username" onChange={e => handleChange(e)} />
       <br />
-      <input className="usap" name="password" type="password" placeholder="Password" onChange={e => handleChange(e)} />
+      <input className="usap pwd" name="password" type="password" placeholder="Password" onChange={e => handleChange(e)} />
       <br />
       <button className="auth" onClick={handleSignIn} type="submit"> Sign In </button>
     <div className="notSigned">

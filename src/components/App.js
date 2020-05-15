@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import '../style/App.css';
+import '../style/details.css';
 import {
   BrowserRouter, Route, Switch, Redirect,
 } from 'react-router-dom';
@@ -95,6 +96,7 @@ const App = ({ login, addCourses }) => {
           path="/signUp"
           render={() => <SignUp loggedIn={loggedIn} />}
         />
+        <Route exact path="/detail/:id" component={Detail} />
         <Redirect from="*" to="/" />
       </BrowserRouter>
     </div>

@@ -64,19 +64,21 @@ const Detail = ({ courses, match, user }) => {
 
   if (course !== null) {
     return (
-      <div>
-        <h5>{info}</h5>
-        <div>
+      <div className="detail">
+        <h5 className="info">{info}</h5>
+        <div className="detailTop">
           <input
+            className="backBtn"
             type="button"
             value="<"
             onClick={() => history.goBack()}
           />
           <h5>{course.title}</h5>
         </div>
-        <img alt="course-img" src={course.imgUrl} />
-        <h3>About this course:</h3>
-        <p>
+        <img alt="course-img" className="course-img" src={course.imgUrl} />
+        <div className="detailAbout">
+        <h3 className="aboutTitle">About this course:</h3>
+        <p className="aboutDesc">
           {course.shortDescription.split('.')[0]}
           .
         </p>
@@ -119,9 +121,10 @@ const Detail = ({ courses, match, user }) => {
           </p>
         </div>
         <button type="button" onClick={seeMore} id="toggle">v</button>
-        <div>
-          <button type="button" onClick={addFav}>Add to Favorites</button>
-          <button type="button"><a target="_blank" rel="noopener noreferrer" href={course.url}>Take Course</a></button>
+        </div>
+        <div className="fixedAdder">
+          <button className="adder" type="button" onClick={addFav}>Add to Favorites</button>
+          <button className="adder" type="button"><a target="_blank" rel="noopener noreferrer" href={course.url}>Take Course</a></button>
         </div>
       </div>
     );
@@ -136,7 +139,7 @@ Detail.propTypes = {
   user: PropTypes.string,
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
     }),
   }).isRequired,
 };
