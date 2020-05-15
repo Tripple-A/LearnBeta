@@ -53,12 +53,13 @@ const Detail = ({ courses, match, user }) => {
 
   const seeMore = () => {
     const btn = document.getElementById('toggle');
-    if (btn.textContent === 'v') {
+    console.log(btn.src);
+    if (btn.src === 'https://img.icons8.com/android/24/000000/expand-arrow.png') {
       setStyle({ display: 'block' });
-      btn.textContent = '^';
+      btn.src = 'https://img.icons8.com/android/24/000000/collapse-arrow.png';
     } else {
       setStyle({ display: 'none' });
-      btn.textContent = 'v';
+      btn.src = 'https://img.icons8.com/android/24/000000/expand-arrow.png';
     }
   };
 
@@ -120,7 +121,12 @@ const Detail = ({ courses, match, user }) => {
             {course.duration}
           </p>
         </div>
-        <button type="button" onClick={seeMore} id="toggle">v</button>
+        <img 
+        src="https://img.icons8.com/android/24/000000/expand-arrow.png"
+        onClick={seeMore}
+        id="toggle"
+        />
+        
         </div>
         <div className="fixedAdder">
           <button className="adder" type="button" onClick={addFav}>Add to Favorites</button>
