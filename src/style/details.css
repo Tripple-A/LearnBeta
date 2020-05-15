@@ -20,6 +20,10 @@
     padding-right: 35px;
 }
 
+.backBtn:focus{
+  outline: none;
+}
+
 .course-img{
     width:100%;
     height:260px;
