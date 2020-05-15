@@ -3,6 +3,7 @@ body{
   left:0;
   top:0;
   color:#4e4d4d;
+  overflow-x: hidden;
 }
 
 .landing-page{

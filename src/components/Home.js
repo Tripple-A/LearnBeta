@@ -10,8 +10,8 @@ const Home = () => (
     <h3 className="bluey">Take the course</h3>
     <h3>Love it much? Save to Favorites!</h3>
     <div>
-    <Link to="/signIn" className="auth"> Sign In </Link>
-    <Link to="/signUp" className="auth"> Sign up </Link>
+      <Link to="/signIn" className="auth"> Sign In </Link>
+      <Link to="/signUp" className="auth"> Sign up </Link>
     </div>
   </div>
 );

@@ -78,55 +78,55 @@ const Detail = ({ courses, match, user }) => {
         </div>
         <img alt="course-img" className="course-img" src={course.imgUrl} />
         <div className="detailAbout">
-        <h3 className="aboutTitle">About this course:</h3>
-        <p className="aboutDesc">
-          {course.shortDescription.split('.')[0]}
-          .
-        </p>
-        <div id="seeMore" style={style}>
-          <p>
-            Provider:
-            {course.provider}
+          <h3 className="aboutTitle">About this course:</h3>
+          <p className="aboutDesc">
+            {course.shortDescription.split('.')[0]}
+            .
           </p>
-          <p>
-            Author:
-            {course.author}
-          </p>
-          <p>
-            Level:
-            {course.level}
-          </p>
-          <p>
-            Medium:
-            {course.medium}
-          </p>
-          <p>
-            Language:
-            {course.language}
-          </p>
-          <p>
-            Category:
-            {course.category}
-          </p>
-          <p>
-            Broader Category:
-            {course.broad_category}
-          </p>
-          <p>
-            Ratings:
-            {course.providerRatings}
-          </p>
-          <p>
-            Duration:
-            {course.duration}
-          </p>
-        </div>
-        <img 
-        src="https://img.icons8.com/android/24/000000/expand-arrow.png"
-        onClick={seeMore}
-        id="toggle"
-        />
-        
+          <div id="seeMore" style={style}>
+            <p>
+              Provider:
+              {course.provider}
+            </p>
+            <p>
+              Author:
+              {course.author}
+            </p>
+            <p>
+              Level:
+              {course.level}
+            </p>
+            <p>
+              Medium:
+              {course.medium}
+            </p>
+            <p>
+              Language:
+              {course.language}
+            </p>
+            <p>
+              Category:
+              {course.category}
+            </p>
+            <p>
+              Broader Category:
+              {course.broad_category}
+            </p>
+            <p>
+              Ratings:
+              {course.providerRatings}
+            </p>
+            <p>
+              Duration:
+              {course.duration}
+            </p>
+          </div>
+          <img
+            src="https://img.icons8.com/android/24/000000/expand-arrow.png"
+            onClick={seeMore}
+            id="toggle"
+          />
+
         </div>
         <div className="fixedAdder">
           <button className="adder" type="button" onClick={addFav}>Add to Favorites</button>

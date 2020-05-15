@@ -66,8 +66,10 @@ const Dashboard = ({
       <button type="button" onClick={handleSignOut}>Sign Out</button>
       <br />
       <div>
+        <i className="fa fa-bars" aria-hidden="true" />
         <h3>Courses</h3>
-        <h3>Menu Icon</h3>
+        <i className="fa fa-search" aria-hidden="true" />
+
         <Filter />
         {selectedCourses(filter).map(item => <Course key={item.id} course={item} />)}
       </div>

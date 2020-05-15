@@ -76,9 +76,9 @@ const SignUp = ({ user, loggedIn }) => {
     <div className="landing-page">
       {renderRedirect()}
       <h4 className="error">{ error }</h4>
-      <div class="intro">
-      <p className="sign">Sign Up</p>
-      <p>Hello there! Sign up and start taking software development courses</p>
+      <div className="intro">
+        <p className="sign">Sign Up</p>
+        <p>Hello there! Sign up and start taking software development courses</p>
       </div>
       <input className="usap" name="username" type="text" placeholder="Username" onChange={e => handleChange(e)} />
       <br />
@@ -88,9 +88,12 @@ const SignUp = ({ user, loggedIn }) => {
       <br />
       <button className="auth" onClick={handleSignUp} type="submit"> Sign Up </button>
       <div className="notSigned">
-      <p>Signed up? <Link to="/signIn"> Sign in here</Link> </p>
-    </div>
-    
+        <p>
+          Signed up?
+          <Link to="/signIn"> Sign in here</Link>
+        </p>
+      </div>
+
     </div>
   );
 };
