@@ -75,18 +75,26 @@ const Dashboard = ({
         <img alt="avatar" src="https://img.icons8.com/doodle/56/000000/user-female-skin-type-5--v1.png" />
         {' '}
         <br />
-        {name}
+        <h4>
+          {name}
+        </h4>
+        <br />
+        <button type="button" onClick={openNav}>Dashboard</button>
         <br />
         <Link to={`/favs/${name}`}>My favorites</Link>
         <br />
-        <button type="button" onClick={handleSignOut}>Sign Out</button>
+        <div className="footer">
+          <a>Help</a>
+          <br />
+          <button type="button" onClick={handleSignOut}>Sign Out</button>
+        </div>
         <br />
       </div>
       <div id="main" className="main">
         <div className="header">
-        <i className="fa fa-bars" aria-hidden="true" onClick={openNav} />
-        <h3>Courses</h3>
-        <Filter />
+          <i className="fa fa-bars" aria-hidden="true" onClick={openNav} />
+          <h3>Courses</h3>
+          <Filter />
         </div>
         {selectedCourses(filter).map(item => <Course key={item.id} course={item} />)}
       </div>
