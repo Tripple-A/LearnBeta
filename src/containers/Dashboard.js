@@ -83,9 +83,11 @@ const Dashboard = ({
         <br />
       </div>
       <div id="main" className="main">
+        <div className="header">
         <i className="fa fa-bars" aria-hidden="true" onClick={openNav} />
         <h3>Courses</h3>
         <Filter />
+        </div>
         {selectedCourses(filter).map(item => <Course key={item.id} course={item} />)}
       </div>
     </div>

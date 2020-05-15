@@ -1,5 +1,12 @@
 .dashboard{
-   
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F7F5FA;
+}
+
+.courses{
+  background-color: white;
+  width:300px;
 }
 
 .menu{
@@ -23,19 +30,38 @@
     margin-left: 50px;
 }
 
-.fa{
+.fa, .main h3{
     color: #B9B8BA;
     font-size: 20px;
 }
 
+.fa-bars, .main h3{
+    padding-right:25%
+}
+
+.main h3{
+    margin-top:-3px;
+    color: #5B595B
+}
+
 .main {
     transition: margin-left .5s;
-    padding: 16px;
+    padding: 20px;
     box-shadow: -7px -7px 35px 0 rgba(0, 0, 0, 0.2);
     width:100%;
+    padding-left:30px;
+    overflow-x: hidden;
   }
 
 .courseImg{
     width:300px;
     height:300px
+}
+
+.searchBox{
+    display: none;
+}
+
+.header{
+    display:flex
 }

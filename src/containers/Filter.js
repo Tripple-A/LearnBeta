@@ -10,7 +10,7 @@ const mapDispatchToProps = dispatch => ({
 const Filter = ({ addFilter }) => (
   <div>
   <i className="fa fa-search" aria-hidden="true" />
-  <input type="text" onChange={e => addFilter(e.target.value)} />
+  <input className="searchBox" type="text" onChange={e => addFilter(e.target.value)} />
   </div>
 );
 

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Course = ({ course }) => (
   <Link to={`/detail/${course.id}`}>
-    <div>
+    <div className="courses">
 
       <img className="courseImg" src={course.imgUrl} alt="course template" />
       <h5>
