@@ -21,6 +21,7 @@ const Favorites = ({ match }) => {
   return (
     <div>
       <input
+        data-testid="btn"
         type="button"
         value="<"
         onClick={() => history.go(-1)}

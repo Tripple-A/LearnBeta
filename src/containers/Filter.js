@@ -22,7 +22,7 @@ const Filter = ({ addFilter }) => {
     <div>
       <i className="fa fa-search" aria-hidden="true" onClick={search} />
       <div className="searchDiv" id="searchDiv">
-        <input className="searchBox" type="text" onChange={e => addFilter(e.target.value)} />
+        <input data-testid="search" className="searchBox" type="text" onChange={e => addFilter(e.target.value)} />
         <button type="button" onClick={unSearch}>x</button>
       </div>
     </div>

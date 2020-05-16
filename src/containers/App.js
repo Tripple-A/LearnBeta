@@ -7,13 +7,13 @@ import {
   BrowserRouter, Route, Switch, Redirect,
 } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Home from './Home';
-import SignIn from '../containers/SignIn';
-import SignUp from '../containers/SignUp';
-import Dashboard from '../containers/Dashboard';
-import Favorites from './Favorites';
+import Home from '../components/Home';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+import Dashboard from './Dashboard';
+import Favorites from '../components/Favorites';
 import { LOGIN, ADD } from '../actions';
-import Detail from '../containers/Details';
+import Detail from './Details';
 
 
 const mapDispatchToProps = dispatch => ({

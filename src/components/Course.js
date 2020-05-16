@@ -11,7 +11,7 @@ const Course = ({ course }) => (
         Title:
         {course.title}
       </h5>
-      <h5>
+      <h5 data-testid="provider">
         Provider:
         {course.provider}
       </h5>
