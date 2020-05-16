@@ -5,6 +5,9 @@ import { Redirect, Link } from 'react-router-dom';
 import Course from '../components/Course';
 import { LOGOUT, ADD } from '../actions';
 import Filter from './Filter';
+import AliceCarousel from 'react-alice-carousel';
+import "react-alice-carousel/lib/alice-carousel.css";
+
 
 const mapStateToProps = state => ({
   courses: state.courses,
@@ -21,6 +24,12 @@ const Dashboard = ({
 }) => {
   const [logOut, setLogOut] = useState('false');
   const name = match.params.username;
+
+  const resp = {
+    0: { items: 1 },
+    700: { items: 2 },
+    1024: { items: 3 },
+  }
 
   useEffect(() => {
     async function wait() {
@@ -67,6 +76,9 @@ const Dashboard = ({
       document.getElementById('main').style.marginTop = '-5px';
     }
   };
+  const handleSlideChanged = (e) => {
+    document.querySelector('.index').textContent = e.item;
+  }
 
   return (
     <div className="dashboard">
@@ -96,7 +108,23 @@ const Dashboard = ({
           <h3>Courses</h3>
           <Filter />
         </div>
-        {selectedCourses(filter).map(item => <Course key={item.id} course={item} />)}
+        <AliceCarousel
+          responsive={resp}
+          autoPlayInterval={3200}
+          autoPlayDirection="ltr"
+          fadeOutAnimation={true}
+          mouseTrackingEnabled={true}
+          disableAutoPlayOnAction={true}
+          dotsDisabled={true}
+          playButtonEnabled={true}
+          stagePadding={{ paddingLeft: 20, paddingRight: 20 }}
+          onSlideChanged={handleSlideChanged}
+        >
+          {selectedCourses(filter).map(item => <Course key={item.id} course={item} />)}
+        </AliceCarousel>
+        <div className="slideIndex">
+          <span className="index">1</span>/{courses.length}
+        </div>
       </div>
     </div>
   );
