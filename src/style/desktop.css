@@ -30,6 +30,48 @@
     margin-top: 0;
     font-size: 30px;
   }
+  .menu {
+    width: 15%;
+    padding-top: 5%;
+    padding-left: 5%;
+    box-shadow: 0 2px 2px 2px gray;
+  }
+  .menu a, .menu button {
+    font-size: 25px;
+    text-align: center;
+  }
+  .main {
+    left: initial;
+    position: absolute;
+    right: 0;
+    width: 75%;
+  }
+  .fa-bars {
+    display: none;
+  }
+  .header h3, .fa-search {
+    font-size: 30px;
+  }
+  .searchBox input {
+    width: 200px;
+    height: 40px;
+  }
+  .fixedAdder {
+    position: initial;
+    width: 100%;
+  }
+  .detail {
+    width: min(55%, 80%);
+  }
+}
+
+.main {
+  width: 100%;
+  position: initial;
+}
+
+.searchBox input {
+  border: 1px solid gray;
 }
 
 .regWrap {
@@ -41,4 +83,47 @@
   margin: auto;
   padding: 10px 0;
   max-width: max(90%, 50%);
+}
+
+.alice-carousel__play-btn {
+  z-index: 20;
+}
+
+.slideIndex {
+  font-size: 30px;
+  text-align: center;
+  width: max-content;
+  padding: 5px;
+  letter-spacing: 1px;
+  margin: 20px auto;
+  border: 1px solid silver;
+}
+
+.alice-carousel__prev-btn-item, .alice-carousel__next-btn-item {
+  font-size: 25px;
+}
+
+.alice-carousel__prev-btn-wrapper {
+  padding-right: 40px;
+}
+
+.alice-carousel__play-btn-wrapper {
+  border: 1px solid #000;
+}
+
+.courses {
+  background-color: white;
+  width: min-content;
+  padding-bottom: 20px;
+  margin: auto;
+  border: 1px solid gray;
+  border-radius: 10px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.courses h5 {
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #000;
 }
