@@ -1,3 +1,9 @@
+.main {
+  width: 100%;
+  position: initial;
+}
+
+
 @media (min-width: 750px) {
   .landing-page {
     display: flex;
@@ -34,7 +40,6 @@
     width: 15%;
     padding-top: 5%;
     padding-left: 5%;
-    box-shadow: 0 2px 2px 2px gray;
   }
   .menu a, .menu button {
     font-size: 25px;
@@ -59,15 +64,62 @@
   .fixedAdder {
     position: initial;
     width: 100%;
+    position: absolute;
+    bottom: 0;
   }
   .detail {
-    width: min(55%, 80%);
+    position: relative;
+    max-width: 55%;
+    min-width: 90%;
+    margin: 60px auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  .detailAbout {
+    width: 50%;
+  }
+  .course-img {
+    width: 50%;
+  }
+  #seeMore {
+    display: block !important;
+  }
+
+  .detailTop {
+    position: fixed;
+    text-align: left;
+    padding-left: 30px;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    margin-top: 0;
+    padding-top: 5px;
+    font-size: 28px;
+    background-color: #fff;
+    box-shadow: 2px 0 2px 2px gray;
+  }
+  .detailTop h5 {
+    text-align: center;
+    width: 100%;
+  }
+  .searchDiv {
+    height: 40px;
+    width: 60%;
+    background-color: #fff;
+  }
+  .searchDiv input {
+    height: 30px;
+    font-size: 25px
+  }
+  .searchDiv button {
+    height: 38px;
+  }
+  #toggle {
+    display: none;
   }
 }
-
-.main {
-  width: 100%;
-  position: initial;
+.menu *, #toggle {
+  cursor: pointer;
 }
 
 .searchBox input {
