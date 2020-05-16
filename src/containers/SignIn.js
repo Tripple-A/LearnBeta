@@ -76,7 +76,7 @@ const SignIn = ({ user, loggedIn }) => {
       <br />
       <button className="auth" onClick={handleSignIn} type="submit"> Sign In </button>
       <div className="notSigned">
-        <p>
+        <p data-testid="question">
           Not Signed up?
           <Link to="/signUp"> Sign up here</Link>
         </p>
@@ -89,10 +89,11 @@ const SignIn = ({ user, loggedIn }) => {
 
 SignIn.propTypes = {
   user: PropTypes.string,
-  loggedIn: PropTypes.func.isRequired,
+  loggedIn: PropTypes.func,
 };
 
 SignIn.defaultProps = {
   user: null,
+  loggedIn: null,
 };
 export default connect(mapStateToProps)(SignIn);
