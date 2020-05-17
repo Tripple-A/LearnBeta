@@ -2,6 +2,13 @@
 .main {
     width: 100%;
     position: initial;
+    height:100vh;
+  }
+
+  .slideIndex {
+      font-size: 20px;
+      border: none;
+      margin-top: -20px;
   }
   
   
@@ -143,21 +150,21 @@
   }
   
   .slideIndex {
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
     width: max-content;
     padding: 5px;
     letter-spacing: 1px;
-    margin: 20px auto;
-    border: 1px solid silver;
+    margin: 0px auto;
+    margin-top:-20px;
   }
   
   .alice-carousel__prev-btn-item, .alice-carousel__next-btn-item {
-    font-size: 25px;
+    font-size: 20px;
   }
   
   .alice-carousel__prev-btn-wrapper {
-    padding-right: 40px;
+    padding-right: 30px;
   }
   
   .alice-carousel__play-btn-wrapper {
