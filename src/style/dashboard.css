@@ -1,5 +1,6 @@
 .dashboard{
     overflow-x: hidden;
+    overflow-y: hidden;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #F7F5FA;
 }
@@ -11,6 +12,7 @@
 
 .slideIndex{
     text-align: center;
+    
 }
 
 .menu{
