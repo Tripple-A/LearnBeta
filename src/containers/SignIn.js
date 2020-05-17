@@ -54,7 +54,7 @@ const SignIn = ({ user, loggedIn }) => {
         setError('There was a problem signing you in,Please try again');
         return err;
       });
-    return function abort() {
+    return function cleanUp() {
       controller.abort();
     };
   };

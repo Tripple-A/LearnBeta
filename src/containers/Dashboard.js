@@ -75,11 +75,21 @@ const Dashboard = ({
     document.querySelector('.index').textContent = Math.round(e.item);
   };
 
-  const resp = {
-    0: { items: 1.1 },
-    700: { items: 2 },
-    1024: { items: 3 },
+  const resp = () => {
+    if (window.innerWidth < 330) {
+      return {
+        0: { items: 1.07 },
+        700: { items: 2 },
+        1024: { items: 3 },
+      };
+    }
+    return {
+      0: { items: 1.1 },
+      700: { items: 2 },
+      1024: { items: 3 },
+    };
   };
+
 
   return (
     <div className="dashboard">
@@ -110,14 +120,14 @@ const Dashboard = ({
           <Filter />
         </div>
         <AliceCarousel
-          responsive={resp}
+          responsive={resp()}
           autoPlayInterval={3200}
           autoPlayDirection="ltr"
-          fadeOutAnimation={true}
-          mouseTrackingEnabled={true}
-          disableAutoPlayOnAction={true}
-          dotsDisabled={true}
-          playButtonEnabled={true}
+          fadeOutAnimation
+          mouseTrackingEnabled
+          disableAutoPlayOnAction
+          dotsDisabled
+          playButtonEnabled
           stagePadding={{ paddingLeft: 20, paddingRight: 20 }}
           onSlideChanged={handleSlideChanged}
         >

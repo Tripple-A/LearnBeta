@@ -70,17 +70,17 @@ const App = ({ login, addCourses }) => {
   if (user && loaded) {
     return (
       <div className="container">
-      <BrowserRouter>
-        {renderRedirect()}
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/signIn" component={SignIn} />
-          <Route exact path="/signUp" component={SignUp} />
-          <Route exact path="/favs/:username" component={Favorites} />
-          <Route exact path="/profile/:username" component={Dashboard} />
-          <Route exact path="/detail/:id" component={Detail} />
-        </Switch>
-      </BrowserRouter>
+        <BrowserRouter>
+          {renderRedirect()}
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/signIn" component={SignIn} />
+            <Route exact path="/signUp" component={SignUp} />
+            <Route exact path="/favs/:username" component={Favorites} />
+            <Route exact path="/profile/:username" component={Dashboard} />
+            <Route exact path="/detail/:id" component={Detail} />
+          </Switch>
+        </BrowserRouter>
       </div>
     );
   }

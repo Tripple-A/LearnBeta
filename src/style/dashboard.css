@@ -9,6 +9,10 @@
   width:300px;
 }
 
+.slideIndex{
+    text-align: center;
+}
+
 .menu{
   height: 100%;
   width: 0;
