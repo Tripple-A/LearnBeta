@@ -35,8 +35,8 @@ const Detail = ({ courses, match, user }) => {
     }
     Add();
   };
-
-  const { signal } = AbortController;
+  const controller = new AbortController();
+  const { signal } = controller;
   useEffect(() => {
     async function wait() {
       if (courses.length === 0) {
@@ -50,10 +50,10 @@ const Detail = ({ courses, match, user }) => {
       }
     }
     wait();
-    return function abort() {
-      AbortController.abort();
+    return function cleanUp() {
+      controller.abort();
     };
-  }, [courseId, courses, signal]);
+  }, [courseId, courses, signal, controller]);
 
   const seeMore = () => {
     const btn = document.getElementById('toggle');
@@ -124,15 +124,18 @@ const Detail = ({ courses, match, user }) => {
               {course.duration}
             </p>
           </div>
-          <img
-            alt="button"
-            src="https://img.icons8.com/android/24/000000/expand-arrow.png"
+          <button
+            type="button"
             onClick={seeMore}
             id="toggle"
-            data-testid="toggle"
-            onKeyDown={seeMore}
-          />
+          >
+            <img
+              alt="button"
+              src="https://img.icons8.com/android/24/000000/expand-arrow.png"
 
+              data-testid="toggle"
+            />
+          </button>
         </div>
         <div className="fixedAdder">
           <button data-testid="addFav" className="adder" type="button" onClick={addFav}>Add to Favorites</button>

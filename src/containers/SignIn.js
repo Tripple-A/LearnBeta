@@ -28,8 +28,8 @@ const SignIn = ({ user, loggedIn }) => {
     }
     return null;
   };
-
-  const { signal } = AbortController;
+  const controller = new AbortController();
+  const { signal } = controller;
   const handleSignIn = () => {
     fetch('https://mycourses-api.herokuapp.com/api/login', {
       signal,
@@ -55,7 +55,7 @@ const SignIn = ({ user, loggedIn }) => {
         return err;
       });
     return function abort() {
-      AbortController.abort();
+      controller.abort();
     };
   };
 
