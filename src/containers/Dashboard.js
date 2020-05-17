@@ -84,7 +84,7 @@ const Dashboard = ({
       };
     }
     return {
-      0: { items: 1.1 },
+      0: { items: 1.13 },
       700: { items: 2 },
       1024: { items: 3 },
     };
