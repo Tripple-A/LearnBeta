@@ -37,6 +37,7 @@ const Detail = ({ courses, match, user }) => {
   };
 
   useEffect(() => {
+    
     async function wait() {
       if (courses.length === 0) {
         await fetch(`https://mycourses-api.herokuapp.com/api/courses/${courseId}`)
@@ -121,14 +122,16 @@ const Detail = ({ courses, match, user }) => {
             </p>
           </div>
           <img
+            alt="button"
             src="https://img.icons8.com/android/24/000000/expand-arrow.png"
             onClick={seeMore}
             id="toggle"
+            data-testid="toggle"
           />
 
         </div>
         <div className="fixedAdder">
-          <button className="adder" type="button" onClick={addFav}>Add to Favorites</button>
+          <button data-testid="addFav" className="adder" type="button" onClick={addFav}>Add to Favorites</button>
           <button className="adder" type="button"><a target="_blank" rel="noopener noreferrer" href={course.url}>Take Course</a></button>
         </div>
       </div>
