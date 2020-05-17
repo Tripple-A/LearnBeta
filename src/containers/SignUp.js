@@ -88,7 +88,7 @@ const SignUp = ({ user, loggedIn }) => {
       <br />
       <button className="auth" onClick={handleSignUp} type="submit"> Sign Up </button>
       <div className="notSigned">
-        <p>
+        <p data-testid="question">
           Signed up?
           <Link to="/signIn"> Sign in here</Link>
         </p>
