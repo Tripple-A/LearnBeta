@@ -36,11 +36,11 @@ const Detail = ({ courses, match, user }) => {
     Add();
   };
 
+  const { signal } = AbortController;
   useEffect(() => {
-    
     async function wait() {
       if (courses.length === 0) {
-        await fetch(`https://mycourses-api.herokuapp.com/api/courses/${courseId}`)
+        await fetch(`https://mycourses-api.herokuapp.com/api/courses/${courseId}`, { signal })
           .then(resp => resp.json())
           .then(data => {
             setCourse(data.data);
@@ -50,7 +50,10 @@ const Detail = ({ courses, match, user }) => {
       }
     }
     wait();
-  }, [courseId, courses]);
+    return function abort() {
+      AbortController.abort();
+    };
+  }, [courseId, courses, signal]);
 
   const seeMore = () => {
     const btn = document.getElementById('toggle');
@@ -127,6 +130,7 @@ const Detail = ({ courses, match, user }) => {
             onClick={seeMore}
             id="toggle"
             data-testid="toggle"
+            onKeyDown={seeMore}
           />
 
         </div>

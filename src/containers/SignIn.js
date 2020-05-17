@@ -29,8 +29,10 @@ const SignIn = ({ user, loggedIn }) => {
     return null;
   };
 
+  const { signal } = AbortController;
   const handleSignIn = () => {
     fetch('https://mycourses-api.herokuapp.com/api/login', {
+      signal,
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -52,6 +54,9 @@ const SignIn = ({ user, loggedIn }) => {
         setError('There was a problem signing you in,Please try again');
         return err;
       });
+    return function abort() {
+      AbortController.abort();
+    };
   };
 
   const renderRedirect = () => {

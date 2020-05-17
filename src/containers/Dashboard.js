@@ -84,7 +84,7 @@ const Dashboard = ({
         <Link to={`/favs/${name}`}>My favorites</Link>
         <br />
         <div className="footer">
-          <a>Help</a>
+          <a href="https://github.com/Tripple-A/LearnBeta/blob/learn-beta/README.md">Help</a>
           <br />
           <button type="button" onClick={handleSignOut}>Sign Out</button>
         </div>
