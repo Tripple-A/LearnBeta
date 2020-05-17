@@ -72,7 +72,13 @@ const Dashboard = ({
   };
 
   const handleSlideChanged = e => {
-    document.querySelector('.index').textContent = e.item;
+    document.querySelector('.index').textContent = Math.round(e.item);
+  };
+
+  const resp = {
+    0: { items: 1.1 },
+    700: { items: 2 },
+    1024: { items: 3 },
   };
 
   return (

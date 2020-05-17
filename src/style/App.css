@@ -4,7 +4,9 @@ body{
   top:0;
   color:#4e4d4d;
   overflow-x: hidden;
+  
 }
+
 
 .landing-page{
   background-image: linear-gradient(to bottom, rgba(250,250,250), rgba(250, 250, 250, 0.63)),

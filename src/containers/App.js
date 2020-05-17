@@ -69,6 +69,7 @@ const App = ({ login, addCourses }) => {
 
   if (user && loaded) {
     return (
+      <div className="container">
       <BrowserRouter>
         {renderRedirect()}
         <Switch>
@@ -80,6 +81,7 @@ const App = ({ login, addCourses }) => {
           <Route exact path="/detail/:id" component={Detail} />
         </Switch>
       </BrowserRouter>
+      </div>
     );
   }
   return (
