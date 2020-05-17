@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import AliceCarousel from 'react-alice-carousel';
 import { Redirect, Link } from 'react-router-dom';
 import Course from '../components/Course';
 import { LOGOUT, ADD } from '../actions';
 import Filter from './Filter';
+import 'react-alice-carousel/lib/alice-carousel.css';
+
 
 const mapStateToProps = state => ({
   courses: state.courses,
@@ -68,6 +71,10 @@ const Dashboard = ({
     }
   };
 
+  const handleSlideChanged = e => {
+    document.querySelector('.index').textContent = e.item;
+  };
+
   return (
     <div className="dashboard">
       {renderRedirect()}
@@ -96,7 +103,25 @@ const Dashboard = ({
           <h3>Courses</h3>
           <Filter />
         </div>
-        {selectedCourses(filter).map(item => <Course key={item.id} course={item} />)}
+        <AliceCarousel
+          responsive={resp}
+          autoPlayInterval={3200}
+          autoPlayDirection="ltr"
+          fadeOutAnimation={true}
+          mouseTrackingEnabled={true}
+          disableAutoPlayOnAction={true}
+          dotsDisabled={true}
+          playButtonEnabled={true}
+          stagePadding={{ paddingLeft: 20, paddingRight: 20 }}
+          onSlideChanged={handleSlideChanged}
+        >
+          {selectedCourses(filter).map(item => <Course key={item.id} course={item} />)}
+        </AliceCarousel>
+        <div className="slideIndex">
+          <span className="index">1</span>
+          /
+          {selectedCourses(filter).length}
+        </div>
       </div>
     </div>
   );
