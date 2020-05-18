@@ -11,6 +11,29 @@ const Favorites = ({ match }) => {
   const [courses, setCourses] = useState([]);
   const name = match.params.username;
   const history = useHistory();
+
+  // const handleSignOut = () => {
+  //   localStorage.removeItem('token');
+  //   logout();
+  //   setLogOut(true);
+  // };
+
+  // let count = 0;
+
+  // const openNav = () => {
+  //   count += 1;
+  //   if (count % 2 === 1) {
+  //     document.getElementById('menu').style.width = '200px';
+  //     document.getElementById('main').style.marginLeft = '200px';
+  //     document.getElementById('main').style.marginTop = '20px';
+  //   } else {
+  //     document.getElementById('menu').style.width = '0';
+  //     document.getElementById('main').style.marginLeft = '0';
+  //     document.getElementById('main').style.marginTop = '-5px';
+  //   }
+  // };
+
+
   useEffect(() => {
     async function getCourses() {
       await fetch(`https://mycourses-api.herokuapp.com/api/favs/${name}`)
@@ -45,35 +68,57 @@ const Favorites = ({ match }) => {
 
   return (
     <div>
-      <input
-        className="back-btn"
-        data-testid="btn"
-        type="button"
-        value="<"
-        onClick={() => history.go(-1)}
-      />
-      <h4>Favorite Courses</h4>
-      <AliceCarousel
-        responsive={resp()}
-        autoPlayInterval={3200}
-        autoPlayDirection="ltr"
-        fadeOutAnimation
-        mouseTrackingEnabled
-        disableAutoPlayOnAction
-        dotsDisabled
-        playButtonEnabled
-        stagePadding={{ paddingLeft: 20, paddingRight: 20 }}
-        onSlideChanged={handleSlideChanged}
-      >
-        {typeof courses !== 'string' ? courses.map(item => <Course key={item.id} course={item} />) : 'You have no favourite courses'}
-      </AliceCarousel>
-      <div className="slideIndex">
-        <span className="index">1</span>
-        /
-          {courses.length}
-      </div>
+      {/* <div id="menu" className="menu">
+        <img alt="avatar" src="https://img.icons8.com/doodle/56/000000/user-female-skin-type-5--v1.png" />
+        {' '}
+        <br />
+        <h4>
+          {name}
+        </h4>
+        <br />
+        <button type="button" onClick={openNav}>Dashboard</button>
+        <br />
+        <br />
+        <div className="footer">
+          <a href="https://github.com/Tripple-A/LearnBeta/blob/learn-beta/README.md">Help</a>
+          <br />
+          <button type="button" onClick={handleSignOut}>Sign Out</button>
+        </div>
+        <br />
+      </div> */}
 
+      <div className="favWrap">
+        <input
+          className="back-btn"
+          data-testid="btn"
+          type="button"
+          value="<"
+          onClick={() => history.go(-1)}
+        />
+        <h4>Favorite Courses</h4>
+        <AliceCarousel
+          responsive={resp()}
+          autoPlayInterval={3200}
+          autoPlayDirection="ltr"
+          fadeOutAnimation
+          mouseTrackingEnabled
+          disableAutoPlayOnAction
+          dotsDisabled
+          playButtonEnabled
+          stagePadding={{ paddingLeft: 20, paddingRight: 20 }}
+          onSlideChanged={handleSlideChanged}
+        >
+          {typeof courses !== 'string' ? courses.map(item => <Course key={item.id} course={item} />) : 'You have no favourite courses'}
+        </AliceCarousel>
+        <div className="slideIndex">
+          <span className="index">1</span>
+          /
+          {courses.length}
+        </div>
+
+      </div>
     </div>
+
   );
 };
 

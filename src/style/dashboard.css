@@ -1,75 +1,74 @@
-.dashboard{
+.dashboard {
     overflow-x: hidden;
     overflow-y: hidden;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #F7F5FA;
 }
 
-.courses{
-  background-color: white;
-  width:300px;
+.courses {
+    background-color: white;
+    width: 300px;
 }
 
-.slideIndex{
+.slideIndex {
     text-align: center;
-    
 }
 
-.menu{
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: .111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 15%;
-  padding-left:10%;
-  color:#5A5959;
-  text-align: left;
+.menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: .111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 15%;
+    padding-left: 10%;
+    color: #5A5959;
+    text-align: left;
 }
 
-.menu h4{
+.menu h4 {
     font-size: 18px;
     margin-top: 10px;
 }
 
-.menu a , .menu button{
+.menu a, .menu button {
     text-decoration: none;
-    color:rgb(65, 61, 61);
+    color: rgb(65, 61, 61);
     font-weight: 400;
     font-size: 16px;
 }
 
-.menu button{
+.menu button {
     border: none;
     background-color: #F7F5FA;
     padding: 20px 0;
     z-index: 0;
 }
 
-.menu button:focus{
+.menu button:focus {
     outline: none;
 }
 
-.fa, .main h3{
+.fa, .main h3 {
     color: #B9B8BA;
     font-size: 20px;
 }
 
-.fa-bars, .main h3{
-    padding-right:28%
+.fa-bars, .main h3 {
+    padding-right: 28%
 }
 
-.fa-search{
-    padding-left:5%;
-    margin-top:-3px;
+.fa-search {
+    padding-left: 5%;
+    margin-top: -3px;
 }
 
-.main h3{
-    margin-top:-3px;
+.main h3 {
+    margin-top: -3px;
     color: #5B595B
 }
 
@@ -77,75 +76,73 @@
     transition: margin-left .5s;
     padding: 20px;
     box-shadow: -7px -7px 35px 0 rgba(0, 0, 0, 0.2);
-    width:100%;
-    padding-left:30px;
+    width: 100%;
+    padding-left: 30px;
     overflow-x: hidden;
     overflow-y: hidden;
-  }
-
-.courseImg{
-    width:300px;
-    height:200px
 }
 
-.searchDiv{
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 3%;
-  left: 6%;
-  background-color: .111;
-  overflow-x: hidden;
-  transition: 0.5s;
+.courseImg {
+    width: 300px;
+    height: 200px
 }
 
-.searchBox{
-    width:335px;
+.searchDiv {
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 3%;
+    left: 6%;
+    background-color: .111;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.searchBox {
+    width: 335px;
     height: 25px;
 }
 
-.searchDiv button{
+.searchDiv button {
     height: 31px;
 }
 
-.searchDiv button:focus, .searchBox{
-  outline: none;
+.searchDiv button:focus, .searchBox {
+    outline: none;
 }
 
-.header{
-    display:flex;
-    padding-top:10px;
+.header {
+    display: flex;
+    padding-top: 10px;
 }
 
-.footer{
+.footer {
     margin-top: 220px;
     border-top: 1px solid rgb(213, 213, 216);
     padding-top: 15px;
-    width:55%;
+    width: 55%;
 }
 
 @media screen and (max-width: 380px) {
-    .fa-bars, .main h3{
-        padding-right:25%
+    .fa-bars, .main h3 {
+        padding-right: 25%
     }
-    .courseImg, .courses{
-        width:270px;
+    .courseImg, .courses {
+        width: 270px;
     }
-    .searchBox{
-        width:320px;
-        
+    .searchBox {
+        width: 320px;
     }
-  }
+}
 
 @media screen and (max-width: 350px) {
-    .fa-bars, .main h3{
-        padding-right:22%
+    .fa-bars, .main h3 {
+        padding-right: 22%
     }
-    .courseImg, .courses{
-        width:240px
+    .courseImg, .courses {
+        width: 240px
     }
-    .searchBox{
-        width:260px;
-
+    .searchBox {
+        width: 260px;
     }
-  }
+}

@@ -75,25 +75,26 @@ const SignUp = ({ user, loggedIn }) => {
   return (
     <div className="landing-page">
       {renderRedirect()}
-      <h4 className="error">{ error }</h4>
-      <div className="intro">
-        <p className="sign">Sign Up</p>
-        <p>Hello there! Sign up and start taking software development courses</p>
-      </div>
-      <input className="usap" name="username" type="text" placeholder="Username" onChange={e => handleChange(e)} />
-      <br />
-      <input className="usap" name="password" type="password" placeholder="Password" onChange={e => handleChange(e)} />
-      <br />
-      <input className="usap" name="confirmation" type="password" placeholder="Password Confirmation" onChange={e => handleChange(e)} />
-      <br />
-      <button className="auth" onClick={handleSignUp} type="submit"> Sign Up </button>
-      <div className="notSigned">
-        <p data-testid="question">
-          Signed up?
+      <div className="regWrap">
+        <h4 className="error">{error}</h4>
+        <div className="intro">
+          <p className="sign">Sign Up</p>
+          <p>Hello there! Sign up and start taking software development courses</p>
+        </div>
+        <input className="usap" name="username" type="text" placeholder="Username" onChange={e => handleChange(e)} />
+        <br />
+        <input className="usap" name="password" type="password" placeholder="Password" onChange={e => handleChange(e)} />
+        <br />
+        <input className="usap" name="confirmation" type="password" placeholder="Password Confirmation" onChange={e => handleChange(e)} />
+        <br />
+        <button className="auth" onClick={handleSignUp} type="submit"> Sign Up </button>
+        <div className="notSigned">
+          <p data-testid="question">
+            Signed up?
           <Link to="/signIn"> Sign in here</Link>
-        </p>
+          </p>
+        </div>
       </div>
-
     </div>
   );
 };

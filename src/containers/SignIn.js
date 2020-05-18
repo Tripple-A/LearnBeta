@@ -70,25 +70,26 @@ const SignIn = ({ user, loggedIn }) => {
   return (
     <div className="landing-page">
       {renderRedirect()}
-      <h4 className="error">{error}</h4>
-      <div className="intro">
-        <p className="sign">Sign In</p>
-        <p>Hello there! Sign in and start taking software development courses</p>
-      </div>
-      <input className="usap" name="username" type="text" placeholder="Username" onChange={e => handleChange(e)} />
-      <br />
-      <input className="usap pwd" name="password" type="password" placeholder="Password" onChange={e => handleChange(e)} />
-      <br />
-      <button className="auth" onClick={handleSignIn} type="submit"> Sign In </button>
-      <div className="notSigned">
-        <p data-testid="question">
-          Not Signed up?
+      <div className="regWrap">
+        <h4 className="error">{error}</h4>
+        <div className="intro">
+          <p className="sign">Sign In</p>
+          <p>Hello there! Sign in and start taking software development courses</p>
+        </div>
+        <input className="usap" name="username" type="text" placeholder="Username" onChange={e => handleChange(e)} />
+        <br />
+        <input className="usap pwd" name="password" type="password" placeholder="Password" onChange={e => handleChange(e)} />
+        <br />
+        <button className="auth" onClick={handleSignIn} type="submit"> Sign In </button>
+        <div className="notSigned">
+          <p data-testid="question">
+            Not Signed up?
           <Link to="/signUp"> Sign up here</Link>
-        </p>
+          </p>
+        </div>
+
       </div>
-
     </div>
-
   );
 };
 

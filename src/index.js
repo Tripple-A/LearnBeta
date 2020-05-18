@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import './style/index.css';
-import './style/desktop.css';
 import App from './containers/App';
+import './style/desktop.css';
+import './style/favorite.css'
 import rootReducer from './reducers';
 import * as serviceWorker from './serviceWorker';
 

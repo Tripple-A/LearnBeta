@@ -1,189 +1,237 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 .main {
-    width: 100%;
-    position: initial;
-    height:100vh;
-  }
+  width: 100%;
+  position: initial;
+  height: 100vh;
+}
 
-  .slideIndex {
-      font-size: 20px;
-      border: none;
-      margin-top: -20px;
-  }
-  
-  
-  @media (min-width: 750px) {
-    .landing-page {
-      display: flex;
-      justify-content: space-around;
-      flex-direction: column;
-    }
-    .landing-page h1:first-child {
-      text-align: left;
-      padding-left: 30px;
-    }
-    .reg-wrap {
-      position: fixed;
-      top: 40px;
-      right: 10px;
-    }
-    .bluey {
-      font-size: 45px;
-    }
-    h3:not(.bluey) {
-      font-size: 20px;
-      font-weight: 800;
-    }
-    .notSigned {
-      margin-top: 40px;
-    }
-    .intro {
-      padding-top: 0;
-    }
-    .intro .sign {
-      margin-top: 0;
-      font-size: 30px;
-    }
-    .menu {
-      width: 15%;
-      padding-top: 5%;
-      padding-left: 5%;
-    }
-    .menu a, .menu button {
-      font-size: 25px;
-      text-align: center;
-    }
-    .main {
-      left: initial;
-      position: absolute;
-      right: 0;
-      width: 75%;
-    }
-    .fa-bars {
-      display: none;
-    }
-    .header h3, .fa-search {
-      font-size: 30px;
-    }
-    .searchBox input {
-      width: 200px;
-      height: 40px;
-    }
-    .fixedAdder {
-      position: initial;
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-    }
-    .detail {
-      position: relative;
-      max-width: 55%;
-      min-width: 90%;
-      margin: 60px auto;
-      display: flex;
-      justify-content: space-between;
-    }
-    .detailAbout {
-      width: 50%;
-    }
-    .course-img {
-      width: 50%;
-    }
-    #seeMore {
-      display: block !important;
-    }
-  
-    .detailTop {
-      position: fixed;
-      text-align: left;
-      padding-left: 30px;
-      width: 100vw;
-      top: 0;
-      left: 0;
-      margin-top: 0;
-      padding-top: 5px;
-      font-size: 28px;
-      background-color: #fff;
-      box-shadow: 2px 0 2px 2px gray;
-    }
-    .detailTop h5 {
-      text-align: center;
-      width: 100%;
-    }
-    .searchDiv {
-      height: 40px;
-      width: 60%;
-      background-color: #fff;
-    }
-    .searchDiv input {
-      height: 30px;
-      font-size: 25px
-    }
-    .searchDiv button {
-      height: 38px;
-    }
-    #toggle {
-      display: none;
-    }
-  }
-  .menu *, #toggle {
-    cursor: pointer;
-  }
-  
-  .searchBox input {
-    border: 1px solid gray;
-  }
-  
-  .regWrap {
+.slideIndex {
+  font-size: 20px;
+  border: none;
+  margin-top: -20px;
+}
+
+.landing-page {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('https://static1.squarespace.com/static/5947d8903e00becdc15038e5/59cd4a802994cab3f4fcf5f5/5d7714773d27287f52cb7002/1568085161173/young+adults.jpg?format=1500w');
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+  justify-content: space-around;
+}
+
+.landing-page h3, .landing-page h1 {
+  color: #fff;
+}
+
+.landing-page h1 {
+  font-family: 'Dancing Script', cursive;
+  margin: 0;
+  padding-top: 10px;
+  color: #000;
+}
+
+a {
+  text-decoration: none;
+}
+
+.auth {
+  border-radius: 25px;
+  transition: all 0.7s linear;
+}
+
+.auth:hover {
+  border: 1px solid red;
+  background-color: rgb(131, 59, 20);
+}
+
+.regWrap {
+  border: 1px solid silver;
+  max-width: 400px;
+  min-width: 300px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(192, 192, 192, 0.527);
+}
+
+@media (min-width: 750px) {
+  .landing-page {
     display: flex;
+    height: 100vh;
     justify-content: space-around;
     flex-direction: column;
-    align-items: center;
-    border: 2px solid gray;
-    margin: auto;
-    padding: 10px 0;
-    max-width: max(90%, 50%);
   }
-  
-  .alice-carousel__play-btn {
-    z-index: 20;
+  .landing-page h1:first-child {
+    text-align: left;
+    padding-left: 30px;
+    font-size: 55px;
   }
-  
-  .slideIndex {
+  .auth {
+    font-size: 25px;
+  }
+  .reg-wrap {
+    position: fixed;
+    top: 40px;
+    right: 10px;
+  }
+  .bluey {
+    font-size: 45px;
+  }
+  h3:not(.bluey) {
     font-size: 20px;
+    font-weight: 800;
+  }
+  .notSigned {
+    margin-top: 40px;
+  }
+  .intro {
+    padding-top: 0;
+  }
+  .intro .sign {
+    margin-top: 0;
+    font-size: 30px;
+  }
+  .menu {
+    width: 15%;
+    padding-top: 5%;
+    padding-left: 5%;
+  }
+  .menu a, .menu button {
+    font-size: 25px;
     text-align: center;
-    width: max-content;
-    padding: 5px;
-    letter-spacing: 1px;
-    margin: 0px auto;
-    margin-top:-20px;
   }
-  
-  .alice-carousel__prev-btn-item, .alice-carousel__next-btn-item {
-    font-size: 20px;
+  .main {
+    left: initial;
+    position: absolute;
+    right: 0;
+    width: 75%;
   }
-  
-  .alice-carousel__prev-btn-wrapper {
-    padding-right: 30px;
+  .fa-bars {
+    display: none;
   }
-  
-  .alice-carousel__play-btn-wrapper {
-    border: 1px solid #000;
+  .header h3, .fa-search {
+    font-size: 30px;
   }
-  
-  .courses {
-    background-color: white;
-    width: min-content;
-    padding-bottom: 20px;
-    margin: auto;
-    border: 1px solid gray;
-    border-radius: 10px;
+  .searchBox input {
+    width: 200px;
+    height: 40px;
+  }
+  .fixedAdder {
+    position: initial;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+  .detail {
+    position: relative;
+    max-width: 55%;
+    min-width: 90%;
+    margin: 60px auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  .detailAbout {
+    width: 50%;
+  }
+  .course-img {
+    width: 50%;
+  }
+  #seeMore {
+    display: block !important;
+  }
+  .detailTop {
+    position: fixed;
+    text-align: left;
+    padding-left: 30px;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    margin-top: 0;
+    padding-top: 5px;
+    font-size: 28px;
+    background-color: #fff;
+    box-shadow: 2px 0 2px 2px gray;
+  }
+  .detailTop h5 {
     text-align: center;
-    overflow: hidden;
+    width: 100%;
   }
-  
-  .courses h5 {
-    padding-left: 5px;
-    padding-right: 5px;
-    color: #000;
+  .searchDiv {
+    height: 40px;
+    width: 60%;
+    background-color: #fff;
   }
+  .searchDiv input {
+    height: 30px;
+    font-size: 25px
+  }
+  .searchDiv button {
+    height: 38px;
+  }
+  #toggle {
+    display: none;
+  }
+}
+
+.menu *, #toggle {
+  cursor: pointer;
+}
+
+.searchBox input {
+  border: 1px solid gray;
+}
+
+.regWrap {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid gray;
+  margin: auto;
+  padding: 10px 0;
+  max-width: max(90%, 50%);
+}
+
+.alice-carousel__play-btn {
+  z-index: 20;
+}
+
+.slideIndex {
+  font-size: 20px;
+  text-align: center;
+  width: max-content;
+  padding: 5px;
+  letter-spacing: 1px;
+  margin: 0px auto;
+  margin-top: -20px;
+}
+
+.alice-carousel__prev-btn-item, .alice-carousel__next-btn-item {
+  font-size: 20px;
+}
+
+.alice-carousel__prev-btn-wrapper {
+  padding-right: 30px;
+}
+
+.alice-carousel__play-btn-wrapper {
+  border: 1px solid #000;
+}
+
+.courses {
+  background-color: white;
+  width: min-content;
+  padding-bottom: 20px;
+  margin: auto;
+  border: 1px solid gray;
+  border-radius: 10px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.courses h5 {
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #000;
+}

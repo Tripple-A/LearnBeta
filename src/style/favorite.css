@@ -1,0 +1,13 @@
+.back-btn {
+  margin: 20px 10px 10px 100px;
+  height: 50px;
+  width: 60px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.favWrap h4 {
+  margin-top: -60px;
+  font-size: 40px;
+  text-align: center;
+}
