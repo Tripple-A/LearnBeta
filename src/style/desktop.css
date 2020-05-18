@@ -46,7 +46,7 @@ a {
 
 .regWrap {
   border: 1px solid silver;
-  max-width: 400px;
+  max-width: 380px;
   min-width: 300px;
   margin: auto;
   display: flex;
@@ -55,17 +55,38 @@ a {
   background-color: rgba(192, 192, 192, 0.527);
 }
 
+.regWrap h4, .regWrap p {
+  color: #000;
+}
+
+.regWrap p:not(.sign) {
+  font-size: 17px;
+}
+
+.intro {
+  padding: 10px;
+}
+
+
 @media (min-width: 750px) {
   .landing-page {
-    display: flex;
     height: 100vh;
-    justify-content: space-around;
-    flex-direction: column;
+    text-align: left;
+    padding-left: 30px;
   }
   .landing-page h1:first-child {
     text-align: left;
     padding-left: 30px;
     font-size: 55px;
+  }
+  .landing-page * {
+    margin-top: -20px;
+  }
+  .landing-page h1 {
+    margin-top: -40px;
+  }
+  .regWrap {
+    height: 500px;
   }
   .auth {
     font-size: 25px;
@@ -100,6 +121,12 @@ a {
   .menu a, .menu button {
     font-size: 25px;
     text-align: center;
+  }
+  .menu h4 {
+    padding-left: 40px;
+  }
+  .menu img {
+    padding-left: 30px;
   }
   .main {
     left: initial;
@@ -159,20 +186,46 @@ a {
   }
   .searchDiv {
     height: 40px;
-    width: 60%;
+    margin-top: -20px;
+    margin-left: 240px;
+    width: 550px;
     background-color: #fff;
+    padding: 20px 0 30px 20px;
   }
   .searchDiv input {
-    height: 30px;
+    height: 35px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    outline: none;
+    border: none;
+    border: 1px solid gray;
     font-size: 25px
   }
   .searchDiv button {
-    height: 38px;
+    height: 40px;
+    margin: 0;
+    background-color: gray;
+    color: #fff;
+    font-size: 23px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: none;
+    width: 40px;
+  }
+  .header {
+    padding-left: 250px;
   }
   #toggle {
     display: none;
   }
 }
+
+@media (max-width: 915px) {
+  #menu a, #menu button {
+    font-size: 18px
+  }
+}
+
 
 .menu *, #toggle {
   cursor: pointer;
@@ -234,4 +287,23 @@ a {
   padding-left: 5px;
   padding-right: 5px;
   color: #000;
+}
+
+@media screen and (max-width: 450px) {
+  .regWrap {
+    height: 480px;
+  }
+  .intro {
+    width: auto;
+    padding-top: 0;
+  }
+  .notSigned {
+    margin-top: 0;
+  }
+  .regWrap h4, .regWrap p {
+    margin-bottom: 5px;
+  }
+  .reg-wrap {
+    margin-bottom: 20px
+  }
 }
