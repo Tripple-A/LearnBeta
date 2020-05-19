@@ -67,7 +67,6 @@ a {
   padding: 10px;
 }
 
-
 @media (min-width: 750px) {
   #dash{
     display:none;
@@ -309,5 +308,48 @@ a {
   }
   .reg-wrap {
     margin-bottom: 20px
+  }
+}
+
+@media (max-width: 1030px){
+  #signOut{
+    width: 100px;
+    margin-left: -5px;
+  }
+  
+}
+
+
+@media (max-width: 800px){
+  .main{
+    width: 65%;
+  }
+
+  #signOut{
+    width:100px;
+    margin-left:-15px
+  }
+
+  .menu img, .menu h4{
+    padding-left: 0px
+  }
+
+  .header{
+    padding-left:150px
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .main{
+    width: 100%;
+  }
+
+  #signOut{
+    width:80px;
+    margin-left:-5px
+  }
+
+  .header{
+    padding-left:0
   }
 }

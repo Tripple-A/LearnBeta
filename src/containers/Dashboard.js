@@ -79,14 +79,15 @@ const Dashboard = ({
     if (window.innerWidth < 330) {
       return {
         0: { items: 1.07 },
-        700: { items: 2 },
+        700: { items: 1.5 },
         1024: { items: 3 },
       };
     }
     return {
       0: { items: 1.123 },
-      700: { items: 2 },
-      1024: { items: 3 },
+      700: { items: 1.4 },
+      1020: { items: 2 },
+      1200: {items: 3}
     };
   };
 
@@ -109,7 +110,7 @@ const Dashboard = ({
         <div className="footer">
           <a href="https://github.com/Tripple-A/LearnBeta/blob/learn-beta/README.md">Help</a>
           <br />
-          <button type="button" onClick={handleSignOut}>Sign Out</button>
+          <button type="button" onClick={handleSignOut} id="signOut">Sign Out</button>
         </div>
         <br />
       </div>
