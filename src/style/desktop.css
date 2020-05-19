@@ -354,3 +354,6 @@ a {
     padding-left:0
   }
 }
+.error{
+  color: red;
+}

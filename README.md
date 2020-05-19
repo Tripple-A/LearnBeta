@@ -1,68 +1,112 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# LearnBeta
 
-## Available Scripts
+This is an app that gives you access to a list of software development courses that can help you build your software career.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+* [User Features](#user-features)
+* [Built With](#built-with)
+* [Technologies Employed](#technologies-employed)
+* [Live Preview](#live-preview)
+* [Required Installations](#required-installations)
+* [Installation of This App](#instalation)
+* [Future Features](#future-features)
+* [License](#license)
+* [Author](#author)
+* [Acknowledgements](#acknowledgements)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<!-- User features -->
+## User Features
+* A user can view all courses by swiping or click on the play button for slideshow.
+* A user can filter search based on subject of his choice.
+* A user can click a specific course to view further information on that course.
+* On viewing a course,the user can proceed to take the course or add the course to favorites
+* A user can view his favorite courses.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<!-- BUILT WITH -->
+# Built With
+* VsCode
+* Windows
+* Love and passion for code ❤️
 
-### `npm test`
+<!-- TECHNOLOGIES EMPLOYED -->
+# Technologies Employed
+* React Hooks
+* Redux Store
+* React Routers
+* Jest auto watch
+* React Testing
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- LIVE PREVIEW -->
+## LIVE PREVIEW
+Find the live version [here](https://learnbeta.netlify.app/). 
 
-### `npm run build`
+<!-- REQUIRED INSTALLATION -->
+## REQUIRED INSTALLATIONS
+* npm
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- INSTALLATION -->
+## Installation of This Repository
+Clone the Repository,
 
-### `npm run eject`
+```Shell
+your@pc:~$ git clone git@github.com:Tripple-A/LearnBeta.git
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Move to the downloaded folder
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```Shell
+your@pc:~$ cd LearnBeta
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Install all packages
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```Shell
+your@pc:~$ npm install
+```
 
-## Learn More
+Start the server
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```Shell
+your@pc:~$ npm start
+```
+          
+The app will open on your local host port 3000.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- run tests -->
+## Run tests
 
-### Code Splitting
+Run all tests
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```Shell
+your@pc:~$ npm test
+```
+Run specific tests
 
-### Analyzing the Bundle Size
+```Shell
+your@pc:~$ npm test src/tests/<testfile>
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+<!-- Future features -->
+## Future Features
+* Add live chat between users.
+* Improve desktop and tablet version.
+* Add loading icon on sign in and sign up.
 
-### Making a Progressive Web App
+## License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Distributed under the MIT License. See `LICENSE` for more information.
 
-### Advanced Configuration
+<!-- AUTHOR -->
+## Author
+* 🇳🇬  Abiodun Ajibade - biodun9@gmail.com | [Github Account](https://github.com/Tripple-A) | [Twitter](https://twitter.com/AbiodunAjibade3) | [Linkedin](https://linkedin.com/in/abiodun-ajibade)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
 
-### `npm run build` fails to minify
+* <a href="https://www.microverse.org/"> Microverse</a>.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
