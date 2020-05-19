@@ -4,10 +4,24 @@
   width: 60px;
   cursor: pointer;
   font-size: 20px;
+  border-radius: 10px;
+  border:none
 }
 
 .favWrap h4 {
   margin-top: -60px;
   font-size: 40px;
   text-align: center;
+}
+
+@media screen and (max-width: 430px){
+  .back-btn{
+    width:40px;
+    height: 40px;
+    margin-left: 15px;
+  }
+  .favWrap h4{
+    font-size: 20px;
+    margin-top: -45px;
+  }
 }
