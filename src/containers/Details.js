@@ -58,8 +58,8 @@ const Detail = ({ courses, match, user }) => {
 
   const seeMore = () => {
     const btn = document.getElementById('toggler');
-    if (btn.src === 'https://img.icons8.com/android/24/000000/expand-arrow.png') { 
-    setStyle({ display: 'block' });
+    if (btn.src === 'https://img.icons8.com/android/24/000000/expand-arrow.png') {
+      setStyle({ display: 'block' });
       btn.src = 'https://img.icons8.com/android/24/000000/collapse-arrow.png';
     } else {
       setStyle({ display: 'none' });
@@ -132,7 +132,7 @@ const Detail = ({ courses, match, user }) => {
           >
             <img
               alt="button"
-              src='https://img.icons8.com/android/24/000000/expand-arrow.png'
+              src="https://img.icons8.com/android/24/000000/expand-arrow.png"
               id="toggler"
               data-testid="toggle"
             />

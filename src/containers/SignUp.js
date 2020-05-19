@@ -92,7 +92,7 @@ const SignUp = ({ user, loggedIn }) => {
         <div className="notSigned">
           <p data-testid="question">
             Signed up?
-          <Link to="/signIn"> Sign in here</Link>
+            <Link to="/signIn"> Sign in here</Link>
           </p>
         </div>
       </div>

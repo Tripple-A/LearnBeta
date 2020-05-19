@@ -87,7 +87,7 @@ const Dashboard = ({
       0: { items: 1.123 },
       700: { items: 1.4 },
       1020: { items: 2 },
-      1200: {items: 3}
+      1200: { items: 3 },
     };
   };
 

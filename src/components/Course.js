@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Course = ({ course }) => (
   <div className="courses" onDragStart={e => e.preventDefault()}>
-  <Link to={`/detail/${course.id}`}>
+    <Link to={`/detail/${course.id}`}>
 
       <img className="courseImg" src={course.imgUrl} alt="course template" />
       <h5>
@@ -19,8 +19,8 @@ const Course = ({ course }) => (
         Author:
         {course.author}
       </h5>
-  </Link>
-    </div>
+    </Link>
+  </div>
 );
 
 Course.propTypes = {

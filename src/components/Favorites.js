@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
-import Course from './Course';
 import AliceCarousel from 'react-alice-carousel';
+import Course from './Course';
 import 'react-alice-carousel/lib/alice-carousel.css';
-
 
 
 const Favorites = ({ match }) => {
   const [courses, setCourses] = useState([]);
   const name = match.params.username;
   const history = useHistory();
-
 
 
   useEffect(() => {
