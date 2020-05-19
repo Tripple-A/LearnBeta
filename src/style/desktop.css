@@ -68,6 +68,7 @@ a {
 }
 
 @media (min-width: 750px) {
+
   #dash{
     display:none;
   }
@@ -190,7 +191,7 @@ a {
     height: 40px;
     margin-top: -20px;
     margin-left: 240px;
-    width: 550px;
+    width: 0%;
     background-color: #fff;
     padding: 20px 0 30px 20px;
     overflow-y: hidden;
