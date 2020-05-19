@@ -38,6 +38,7 @@ const SignUp = ({ user, loggedIn }) => {
     }
     fetch('https://mycourses-api.herokuapp.com/api/users', {
       method: 'POST',
+      withCredentials: true,
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',

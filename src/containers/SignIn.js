@@ -34,6 +34,7 @@ const SignIn = ({ user, loggedIn }) => {
     fetch('https://mycourses-api.herokuapp.com/api/login', {
       signal,
       method: 'POST',
+      withCredentials: true,
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',

@@ -12,26 +12,6 @@ const Favorites = ({ match }) => {
   const name = match.params.username;
   const history = useHistory();
 
-  // const handleSignOut = () => {
-  //   localStorage.removeItem('token');
-  //   logout();
-  //   setLogOut(true);
-  // };
-
-  // let count = 0;
-
-  // const openNav = () => {
-  //   count += 1;
-  //   if (count % 2 === 1) {
-  //     document.getElementById('menu').style.width = '200px';
-  //     document.getElementById('main').style.marginLeft = '200px';
-  //     document.getElementById('main').style.marginTop = '20px';
-  //   } else {
-  //     document.getElementById('menu').style.width = '0';
-  //     document.getElementById('main').style.marginLeft = '0';
-  //     document.getElementById('main').style.marginTop = '-5px';
-  //   }
-  // };
 
 
   useEffect(() => {

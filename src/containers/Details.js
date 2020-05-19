@@ -19,6 +19,7 @@ const Detail = ({ courses, match, user }) => {
       await fetch('https://mycourses-api.herokuapp.com/api/favorites', {
         method: 'POST',
         mode: 'cors',
+        withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
         },
