@@ -69,6 +69,9 @@ a {
 
 
 @media (min-width: 750px) {
+  #dash{
+    display:none;
+  }
   .landing-page {
     height: 100vh;
     text-align: left;
@@ -191,6 +194,7 @@ a {
     width: 550px;
     background-color: #fff;
     padding: 20px 0 30px 20px;
+    overflow-y: hidden;
   }
   .searchDiv input {
     height: 35px;
@@ -206,7 +210,7 @@ a {
     margin: 0;
     background-color: gray;
     color: #fff;
-    font-size: 23px;
+    font-size: 25px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border: none;
