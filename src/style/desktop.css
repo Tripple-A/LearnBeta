@@ -39,9 +39,36 @@ a {
   transition: all 0.7s linear;
 }
 
+.backBtn {
+  font-size: 25px;
+  border-radius: 10px;
+  border: 2px solid #EC5200;
+  transition: all 1s linear;
+  text-align: center;
+  padding: 0;
+  width: 60px;
+  margin-bottom: 5px;
+}
+
+.fa-search, .backBtn,.fixedAdder button {
+  cursor: pointer;
+}
+
 .auth:hover {
   border: 1px solid red;
   background-color: rgb(131, 59, 20);
+}
+
+.fixedAdder {
+  padding: 0;
+}
+
+.fixedAdder button {
+  height: 50px;
+}
+
+.fixedAdder button:first-child {
+  border-right: 2px solid #fff;
 }
 
 .regWrap {
