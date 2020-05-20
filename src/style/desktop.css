@@ -94,10 +94,10 @@ a {
   padding: 10px;
 }
 
-.bluey {
-  font-family: 'Dancing Script', cursive;
+.textsWrap h3:not(.bluey), .textsWrap h3:nth-child(3) {
+  font-weight: 300;
+  font-size: 22px;
 }
-
 
 .textsWrap {
   padding: 10px;
