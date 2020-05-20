@@ -47,16 +47,16 @@ const Favorites = ({ match }) => {
   return (
     <div>
       <div className="favWrap">
-      <div className="favHead">
-        <input
-          className="back-btn"
-          data-testid="btn"
-          type="button"
-          value="<"
-          onClick={() => history.go(-1)}
-        />
-        <h4>Favorite Courses</h4>
-      </div>
+        <div className="favHead">
+          <input
+            className="back-btn"
+            data-testid="btn"
+            type="button"
+            value="<"
+            onClick={() => history.go(-1)}
+          />
+          <h4>Favorite Courses</h4>
+        </div>
         <AliceCarousel
           responsive={resp()}
           autoPlayInterval={3200}
