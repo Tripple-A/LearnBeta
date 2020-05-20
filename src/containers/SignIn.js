@@ -69,7 +69,7 @@ const SignIn = ({ user, loggedIn }) => {
   };
 
   return (
-    <div className="landing-page">
+    <div className="landing-page landingReg">
       {renderRedirect()}
       <div className="regWrap">
         <h4 className="error">{error}</h4>

@@ -50,7 +50,7 @@ a {
   margin-bottom: 5px;
 }
 
-.fa-search, .backBtn,.fixedAdder button {
+.fa-search, .backBtn, .fixedAdder button {
   cursor: pointer;
 }
 
@@ -72,13 +72,16 @@ a {
 }
 
 .regWrap {
-  border: 1px solid silver;
-  max-width: 380px;
-  min-width: 300px;
-  margin: auto;
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
   align-items: center;
+  padding: 10px 0;
+  /* max-width: 380px; */
+  /* min-width: 300px; */
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
   background-color: rgba(192, 192, 192, 0.527);
 }
 
@@ -122,6 +125,12 @@ a {
     text-align: left;
     padding-left: 70px;
   }
+  .landingReg {
+    padding-left: 0;
+  }
+  .usap {
+    width: 30%;
+  }
   .landing-page h1:first-child {
     text-align: left;
     padding-left: 30px;
@@ -140,9 +149,6 @@ a {
   }
   .textsWrap * {
     margin-bottom: 70px;
-  }
-  .regWrap {
-    height: 500px;
   }
   .auth {
     font-size: 25px;
@@ -291,16 +297,9 @@ a {
   border: 1px solid gray;
 }
 
-.regWrap {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  align-items: center;
-  border: 2px solid gray;
-  margin: auto;
-  padding: 10px 0;
+/* .regWrap {
   max-width: max(90%, 50%);
-}
+} */
 
 .alice-carousel__play-btn {
   z-index: 20;
@@ -347,7 +346,8 @@ a {
 
 @media screen and (max-width: 450px) {
   .regWrap {
-    height: 480px;
+    padding-top: 20%;
+    padding-bottom: 20%;
   }
   .intro {
     width: auto;
