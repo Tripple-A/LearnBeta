@@ -69,12 +69,8 @@ a {
 
 .bluey {
   font-family: 'Dancing Script', cursive;
-  font-size: 25px;
 }
 
-.bluey:first-child {
-  font-size: 35px;
-}
 
 .textsWrap {
   padding: 10px;
