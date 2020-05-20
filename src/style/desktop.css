@@ -67,15 +67,37 @@ a {
   padding: 10px;
 }
 
-@media (min-width: 750px) {
+.bluey {
+  font-family: 'Dancing Script', cursive;
+  font-size: 25px;
+}
 
-  #dash{
-    display:none;
+.bluey:first-child {
+  font-size: 35px;
+}
+
+.textsWrap {
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
+.auth {
+  font-size: 22px;
+  width: auto;
+}
+
+.textsWrap * {
+  margin-bottom: 50px;
+}
+
+@media (min-width: 750px) {
+  #dash {
+    display: none;
   }
   .landing-page {
     height: 100vh;
     text-align: left;
-    padding-left: 30px;
+    padding-left: 70px;
   }
   .landing-page h1:first-child {
     text-align: left;
@@ -86,7 +108,15 @@ a {
     margin-top: -20px;
   }
   .landing-page h1 {
-    margin-top: -40px;
+    margin-top: 0;
+    position: fixed;
+    top: 0;
+  }
+  .textsWrap {
+    margin-top: 200px;
+  }
+  .textsWrap * {
+    margin-bottom: 70px;
   }
   .regWrap {
     height: 500px;
@@ -96,7 +126,7 @@ a {
   }
   .reg-wrap {
     position: fixed;
-    top: 40px;
+    top: 50px;
     right: 10px;
   }
   .bluey {
@@ -230,7 +260,6 @@ a {
   }
 }
 
-
 .menu *, #toggle {
   cursor: pointer;
 }
@@ -312,48 +341,42 @@ a {
   }
 }
 
-@media (max-width: 1030px){
-  #signOut{
+@media (max-width: 1030px) {
+  #signOut {
     width: 100px;
     margin-left: -5px;
   }
-  
 }
 
-
-@media (max-width: 800px){
-  .main{
+@media (max-width: 800px) {
+  .main {
     width: 65%;
   }
-
-  #signOut{
-    width:100px;
-    margin-left:-15px
+  #signOut {
+    width: 100px;
+    margin-left: -15px
   }
-
-  .menu img, .menu h4{
+  .menu img, .menu h4 {
     padding-left: 0px
   }
-
-  .header{
-    padding-left:150px
+  .header {
+    padding-left: 150px
   }
 }
 
 @media screen and (max-width: 430px) {
-  .main{
+  .main {
     width: 100%;
   }
-
-  #signOut{
-    width:80px;
-    margin-left:-5px
+  #signOut {
+    width: 80px;
+    margin-left: -5px
   }
-
-  .header{
-    padding-left:0
+  .header {
+    padding-left: 0
   }
 }
-.error{
+
+.error {
   color: red;
 }
