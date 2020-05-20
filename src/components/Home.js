@@ -7,12 +7,12 @@ const Home = () => (
     <h1 data-testid="title">LearnBeta</h1>
     <div className="textsWrap">
       <h3 className="bluey">Want a career in tech? Start today!</h3>
-      <h3>Find a course</h3>
-      <h3 className="bluey">Take the course</h3>
-      <h3>Love it much? Save to Favorites!</h3>
+      <h3></h3>
+      <h3 className="bluey">Find a course Love it much? Save to Favorites! Take the course</h3>
+      <h3><Link to="/signUp" className="auth" data-testid="signUp"> START FREE</Link> Have fun </h3>
       <div className="reg-wrap">
-        <Link to="/signIn" className="auth" data-testid="signIn"> Sign In </Link>
-        <Link to="/signUp" className="auth" data-testid="signUp"> Sign Up </Link>
+        <Link to="/signIn" className="auth sign" data-testid="signIn"> Sign In </Link>
+        <Link to="/signUp" className="auth sign" data-testid="signUp"> Sign Up </Link>
       </div>
     </div>
   </div>
