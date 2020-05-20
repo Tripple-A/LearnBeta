@@ -7,7 +7,7 @@ const Home = () => (
     <h1 data-testid="title">LearnBeta</h1>
     <div className="textsWrap">
       <h3 className="bluey">Want a career in tech? Start today!</h3>
-      <h3 />
+      <h3>.</h3>
       <h3 className="bluey">Find a course Love it much? Save to Favorites! Take the course</h3>
       <h3>
         <Link to="/signUp" className="auth"> START FREE</Link>
