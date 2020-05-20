@@ -103,7 +103,7 @@ const Dashboard = ({
           {name}
         </h4>
         <br />
-        {/* <button type="button" onClick={openNav} id="dash">Dashboard</button> */}
+        <button type="button" onClick={openNav} id="dash">Dashboard</button>
         <br />
         <Link to={`/favs/${name}`}>My favorites</Link>
         <br />
