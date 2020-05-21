@@ -1,38 +1,84 @@
-.App {
+body{
+  margin:0;
+  left:0;
+  top:0;
+  color:#4e4d4d;
+  overflow-x: hidden;
+  
+}
+
+
+.landing-page{
+  background-image: linear-gradient(to bottom, rgba(250,250,250), rgba(250, 250, 250, 0.63)),
+  url('https://images.unsplash.com/photo-1532618500676-2e0cbf7ba8b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1414&q=80');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size:cover;
+  height: 100vh;
+  margin-top:-20px;
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ p{
+  font-size: 14px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.sign{
+  font-size: 24px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.intro{
+  width:60%;
+  text-align: center;
+  padding-top: 15%;
+  margin: 0px auto;
+  font-size: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.usap{
+  width: 60%;
+  padding:10px;
+  border-radius: 20px;
+  border:none;
+  margin-bottom: 20px;
+  border:1.3px solid #cec9c9
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.notSigned{
+  margin-top:20%
+}
+
+.usap:focus{
+  outline: none;
+  border-color: #EC5200;
+}
+
+.auth{
+  background-color: #EC5200;
+  width:25%;
+  padding:10px;
+  border-radius: 20px;
+  border:none;
+  margin-right: 20px;
+  margin-left: 20px;
+  color:white;
+}
+
+.auth:focus{
+  outline: none;
+}
+
+.regWrap h4.error{
+  color: red;
+  padding-top:20px;
+  font-size: 16px;
+}
+
+.pwd{
+  color: #EC5200
+}
+
+.bluey {
+  font-size: 25px;
 }

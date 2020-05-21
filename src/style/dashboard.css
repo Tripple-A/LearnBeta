@@ -1,0 +1,160 @@
+.dashboard {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F7F5FA;
+}
+
+.courses {
+    background-color: white;
+    width: 300px;
+}
+
+.slideIndex {
+    text-align: center;
+}
+
+.menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: .111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 15%;
+    padding-left: 10%;
+    color: #5A5959;
+    text-align: left;
+}
+
+.menu h4 {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.menu a, .menu button {
+    text-decoration: none;
+    color: rgb(65, 61, 61);
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.menu button {
+    border: none;
+    background-color: #F7F5FA;
+    padding: 20px 0;
+    z-index: 0;
+}
+
+.menu button:focus {
+    outline: none;
+}
+
+.fa, .main h3 {
+    color: #B9B8BA;
+    font-size: 20px;
+}
+
+.fa-bars, .main h3 {
+    padding-right: 28%
+}
+
+.fa-search {
+    padding-left: 5%;
+    margin-top: -3px;
+}
+
+.main h3 {
+    margin-top: -3px;
+    color: #5B595B
+}
+
+.main {
+    transition: margin-left .5s;
+    padding: 20px;
+    box-shadow: -7px -7px 35px 0 rgba(0, 0, 0, 0.2);
+    width: 100%;
+    padding-left: 30px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.courseImg {
+    width: 300px;
+    height: 200px
+}
+
+.searchDiv {
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 3%;
+    left: 6%;
+    background-color: .111;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.searchBox {
+    width: 340px;
+    height: 25px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    outline: none;
+    border: 1px solid silver;
+}
+
+.searchDiv button {
+    height: 31px;
+    background-color: gray;
+    color: #fff;
+    font-size: 15px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    outline: none;
+    border: 1px solid silver;
+    margin-left: -2px;
+}
+
+.searchDiv button:focus, .searchBox {
+    outline: none;
+}
+
+.header {
+    display: flex;
+    padding-top: 10px;
+}
+
+.footer {
+    margin-top: 200px;
+    border-top: 1px solid rgb(213, 213, 216);
+    padding-top: 15px;
+    width: 55%;
+}
+
+@media screen and (max-width: 380px) {
+    .fa-bars, .main h3 {
+        padding-right: 25%
+    }
+    .courseImg, .courses {
+        width: 270px;
+    }
+    .searchBox {
+        width: 320px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .fa-bars, .main h3 {
+        padding-right: 22%
+    }
+    .courseImg, .courses {
+        width: 240px
+    }
+    .searchBox {
+        width: 260px;
+    }
+}

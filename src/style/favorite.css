@@ -1,0 +1,75 @@
+.back-btn {
+  margin: 20px 10px 10px 100px;
+  height: 50px;
+  width: 60px;
+  cursor: pointer;
+  font-size: 25px;
+  border-radius: 10px;
+  border: none;
+  border: 2px solid #EC5200;
+  transition: all 1s linear;
+}
+
+.back-btn:hover {
+  border-color: rgb(231, 102, 32);
+  color: #fff;
+  background-color: silver;
+  transform: scale(1.1);
+}
+
+.favWrap h4 {
+  font-size: 40px;
+  text-align: center;
+  top: 20px;
+  margin: 0;
+}
+
+.favHead * {
+  position: absolute;
+  left: -20%;
+}
+
+.favHead .back-btn {
+  animation: moveA 2s 0s forwards linear;
+}
+
+.favHead h4 {
+  animation: moveB 2s 0s forwards linear;
+}
+
+@keyframes moveA {
+  100% {
+    left: initial;
+  }
+}
+
+@keyframes moveB {
+  100% {
+    left: 50%;
+  }
+}
+
+.favHead {
+  position: relative;
+  height: 150px;
+}
+
+@media screen and (max-width: 430px) {
+  .back-btn {
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+  }
+  .favWrap h4 {
+    font-size: 20px;
+    top: 25px;
+  }
+  .favHead {
+    height: 120px;
+  }
+  @keyframes moveB {
+    100% {
+      left: 20%;
+    }
+  }  
+}
