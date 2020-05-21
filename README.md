@@ -39,7 +39,8 @@ This is an app that gives you access to a list of software development courses t
 
 <!-- LIVE PREVIEW -->
 ## LIVE PREVIEW
-Find the live version [here](https://learnbeta.netlify.app/). 
+Find the live version [here](https://learnbeta.netlify.app/). Below is a screenshot of what it looks like on a laptop and mobile screen.
+![Image](/src/images/proof.png)
 
 <!-- REQUIRED INSTALLATION -->
 ## REQUIRED INSTALLATIONS
@@ -101,7 +102,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- AUTHOR -->
 ## Author
-* 🇳🇬  Abiodun Ajibade - biodun9@gmail.com | [Github Account](https://github.com/Tripple-A) | [Twitter](https://twitter.com/AbiodunAjibade3) | [Linkedin](https://linkedin.com/in/abiodun-ajibade)
+* 🇳🇬  Abiodun Ajibade - biodun9@gmail.com | [Github Account](https://github.com/Tripple-A) | [Twitter](https://twitter.com/AbiodunAjibade3) | [Linkedin](https://linkedin.com/in/abiodun-ajibade) | [Portfolio](https://abiodun-ajibade.netlify.app)
 
 
 
