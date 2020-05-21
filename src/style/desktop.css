@@ -39,19 +39,47 @@ a {
   transition: all 0.7s linear;
 }
 
+.backBtn {
+  font-size: 25px;
+  border-radius: 10px;
+  border: 2px solid #EC5200;
+  transition: all 1s linear;
+  text-align: center;
+  padding: 0;
+  width: 60px;
+  margin-bottom: 5px;
+}
+
+.fa-search, .backBtn, .fixedAdder button {
+  cursor: pointer;
+}
+
 .auth:hover {
   border: 1px solid red;
   background-color: rgb(131, 59, 20);
 }
 
+.fixedAdder {
+  padding: 0;
+}
+
+.fixedAdder button {
+  height: 50px;
+}
+
+.fixedAdder button:first-child {
+  border-right: 2px solid #fff;
+}
+
 .regWrap {
-  border: 1px solid silver;
-  max-width: 380px;
-  min-width: 300px;
-  margin: auto;
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
   align-items: center;
+  padding: 10px 0;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
   background-color: rgba(192, 192, 192, 0.527);
 }
 
@@ -67,15 +95,51 @@ a {
   padding: 10px;
 }
 
-@media (min-width: 750px) {
+.textsWrap h3:not(.bluey), .textsWrap h3:nth-child(3) {
+  font-weight: 300;
+  font-size: 18px;
+}
 
-  #dash{
-    display:none;
+.textsWrap {
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
+.auth {
+  font-size: 22px;
+  width: auto;
+}
+
+.textsWrap * {
+  margin-bottom: 50px;
+}
+
+.sign {
+  background-color: rgba(128, 128, 128, 0.3);
+}
+
+.sign:nth-child(2) {
+  background-color: rgba(128, 128, 128, 0.7);
+}
+
+.textsWrap h3:nth-child(4) {
+  display: none;
+}
+
+@media (min-width: 750px) {
+  #dash {
+    display: none;
   }
   .landing-page {
     height: 100vh;
     text-align: left;
-    padding-left: 30px;
+    padding-left: 70px;
+  }
+  .landingReg {
+    padding-left: 0;
+  }
+  .usap {
+    width: 30%;
   }
   .landing-page h1:first-child {
     text-align: left;
@@ -85,18 +149,28 @@ a {
   .landing-page * {
     margin-top: -20px;
   }
-  .landing-page h1 {
-    margin-top: -40px;
+  .textsWrap h3:nth-child(4) {
+    display: block;
   }
-  .regWrap {
-    height: 500px;
+  .landing-page h1 {
+    margin-top: 0;
+    position: fixed;
+    top: 0;
+  }
+  .textsWrap {
+    max-width: 500px;
+    min-width: 300px;
+    margin-top: 200px;
+  }
+  .textsWrap * {
+    margin-bottom: 70px;
   }
   .auth {
     font-size: 25px;
   }
   .reg-wrap {
     position: fixed;
-    top: 40px;
+    top: 50px;
     right: 10px;
   }
   .bluey {
@@ -230,24 +304,12 @@ a {
   }
 }
 
-
 .menu *, #toggle {
   cursor: pointer;
 }
 
 .searchBox input {
   border: 1px solid gray;
-}
-
-.regWrap {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  align-items: center;
-  border: 2px solid gray;
-  margin: auto;
-  padding: 10px 0;
-  max-width: max(90%, 50%);
 }
 
 .alice-carousel__play-btn {
@@ -295,7 +357,11 @@ a {
 
 @media screen and (max-width: 450px) {
   .regWrap {
-    height: 480px;
+    padding-top: 20%;
+    padding-bottom: 20%;
+  }
+  .reg-wrap .sign {
+    background-color: #EC5200;
   }
   .intro {
     width: auto;
@@ -310,50 +376,47 @@ a {
   .reg-wrap {
     margin-bottom: 20px
   }
+  .textsWrap {
+    margin-bottom: 100px;
+  }
 }
 
-@media (max-width: 1030px){
-  #signOut{
+@media (max-width: 1030px) {
+  #signOut {
     width: 100px;
     margin-left: -5px;
   }
-  
 }
 
-
-@media (max-width: 800px){
-  .main{
+@media (max-width: 800px) {
+  .main {
     width: 65%;
   }
-
-  #signOut{
-    width:100px;
-    margin-left:-15px
+  #signOut {
+    width: 100px;
+    margin-left: -15px
   }
-
-  .menu img, .menu h4{
+  .menu img, .menu h4 {
     padding-left: 0px
   }
-
-  .header{
-    padding-left:150px
+  .header {
+    padding-left: 150px
   }
 }
 
 @media screen and (max-width: 430px) {
-  .main{
+  .main {
     width: 100%;
   }
-
-  #signOut{
-    width:80px;
-    margin-left:-5px
+  #signOut {
+    width: 80px;
+    margin-left: -5px
   }
-
-  .header{
-    padding-left:0
+  .header {
+    padding-left: 0
   }
 }
-.error{
+
+.error {
   color: red;
 }

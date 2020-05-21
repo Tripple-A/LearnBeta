@@ -69,7 +69,7 @@ body{
   outline: none;
 }
 
-.error{
+.regWrap h4.error{
   color: red;
   padding-top:20px;
   font-size: 16px;
@@ -77,4 +77,8 @@ body{
 
 .pwd{
   color: #EC5200
+}
+
+.bluey {
+  font-size: 25px;
 }

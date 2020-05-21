@@ -46,34 +46,17 @@ const Favorites = ({ match }) => {
 
   return (
     <div>
-      {/* <div id="menu" className="menu">
-        <img alt="avatar" src="https://img.icons8.com/doodle/56/000000/user-female-skin-type-5--v1.png" />
-        {' '}
-        <br />
-        <h4>
-          {name}
-        </h4>
-        <br />
-        <button type="button" onClick={openNav}>Dashboard</button>
-        <br />
-        <br />
-        <div className="footer">
-          <a href="https://github.com/Tripple-A/LearnBeta/blob/learn-beta/README.md">Help</a>
-          <br />
-          <button type="button" onClick={handleSignOut}>Sign Out</button>
-        </div>
-        <br />
-      </div> */}
-
       <div className="favWrap">
-        <input
-          className="back-btn"
-          data-testid="btn"
-          type="button"
-          value="<"
-          onClick={() => history.go(-1)}
-        />
-        <h4>Favorite Courses</h4>
+        <div className="favHead">
+          <input
+            className="back-btn"
+            data-testid="btn"
+            type="button"
+            value="<"
+            onClick={() => history.go(-1)}
+          />
+          <h4>Favorite Courses</h4>
+        </div>
         <AliceCarousel
           responsive={resp()}
           autoPlayInterval={3200}
