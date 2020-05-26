@@ -50,7 +50,7 @@ Find the live version [here](https://learnbeta.netlify.app/). Below is a screens
 
 <!-- INSTALLATION -->
 ## Installation of This Repository
-Clone the Repository,
+Clone the Repository
 
 ```Shell
 your@pc:~$ git clone git@github.com:Tripple-A/LearnBeta.git
