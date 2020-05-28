@@ -36,6 +36,7 @@ const SignIn = ({ user, login }) => {
   const controller = new AbortController();
   const { signal } = controller;
   const handleSignIn = () => {
+    setError('');
     fetch('https://mycourses-api.herokuapp.com/api/login', {
       signal,
       method: 'POST',
@@ -57,6 +58,7 @@ const SignIn = ({ user, login }) => {
         controller.abort();
       })
       .catch(err => {
+        console.log(err)
         setError('There was a problem signing you in,Please try again');
         return err;
       });
