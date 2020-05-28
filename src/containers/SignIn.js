@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { LOGIN } from '../actions';
+
+
+const mapDispatchToProps = dispatch => ({
+  login: username => dispatch(LOGIN(username)),
+});
 
 
 const mapStateToProps = state => ({
@@ -9,10 +15,9 @@ const mapStateToProps = state => ({
 });
 
 
-const SignIn = ({ user, loggedIn }) => {
+const SignIn = ({ user, login }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [switcher, setSwitcher] = useState(false);
   const [error, setError] = useState('');
 
   const handleChange = e => {
@@ -46,22 +51,19 @@ const SignIn = ({ user, loggedIn }) => {
     }).then(resp => resp.json())
       .then(data => {
         localStorage.setItem('token', data.jwt);
-        loggedIn(username);
-        setSwitcher(true);
+        login(username);
         setPassword('');
         setUsername('');
+        controller.abort();
       })
       .catch(err => {
         setError('There was a problem signing you in,Please try again');
         return err;
       });
-    return function cleanUp() {
-      controller.abort();
-    };
   };
 
   const renderRedirect = () => {
-    if (user && switcher) {
+    if (user) {
       const target = `/profile/${user}`;
       return <Redirect to={target} />;
     }
@@ -96,11 +98,10 @@ const SignIn = ({ user, loggedIn }) => {
 
 SignIn.propTypes = {
   user: PropTypes.string,
-  loggedIn: PropTypes.func,
+  login: PropTypes.func.isRequired,
 };
 
 SignIn.defaultProps = {
   user: null,
-  loggedIn: null,
 };
-export default connect(mapStateToProps)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

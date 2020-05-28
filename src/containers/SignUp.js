@@ -2,13 +2,19 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { LOGIN } from '../actions';
+
+
+const mapDispatchToProps = dispatch => ({
+  login: username => dispatch(LOGIN(username)),
+});
 
 const mapStateToProps = state => ({
   user: state.user,
 });
 
 
-const SignUp = ({ user, loggedIn }) => {
+const SignUp = ({ user, login }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
@@ -52,7 +58,7 @@ const SignUp = ({ user, loggedIn }) => {
       .then(data => {
         if (data.status === 'SUCCESS') {
           localStorage.setItem('token', data.data);
-          loggedIn(username);
+          login(username);
           setPassword('');
           setUsername('');
         } else {
@@ -102,12 +108,11 @@ const SignUp = ({ user, loggedIn }) => {
 
 SignUp.propTypes = {
   user: PropTypes.string,
-  loggedIn: PropTypes.func,
+  login: PropTypes.func.isRequired,
 };
 
 SignUp.defaultProps = {
   user: null,
-  loggedIn: undefined,
 };
 
-export default connect(mapStateToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
