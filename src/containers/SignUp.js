@@ -59,9 +59,10 @@ const SignUp = ({ user, login }) => {
       .then(data => {
         if (data.status === 'SUCCESS') {
           localStorage.setItem('token', data.data);
-          login(username);
+          const name = username;
           setPassword('');
           setUsername('');
+          login(name);
         } else {
           setError('Please try again,Username taken');
         }

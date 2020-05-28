@@ -52,9 +52,10 @@ const SignIn = ({ user, login }) => {
     }).then(resp => resp.json())
       .then(data => {
         localStorage.setItem('token', data.jwt);
-        login(username);
-        setUsername('');
+        const name = username;
         setPassword('');
+        setUsername('');
+        login(name);
       })
       .catch(err => {
         setError('There was a problem signing you in,Please try again');
