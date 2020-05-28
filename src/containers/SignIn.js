@@ -55,7 +55,6 @@ const SignIn = ({ user, login }) => {
         login(username);
         setPassword('');
         setUsername('');
-        controller.abort();
       })
       .catch(err => {
         console.log(err)
