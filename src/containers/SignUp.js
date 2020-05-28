@@ -38,6 +38,7 @@ const SignUp = ({ user, login }) => {
   };
 
   const handleSignUp = () => {
+    setError('Signing you up...');
     if (password !== passwordConfirmation) {
       setError('Password and Password confirmation mustbe the same');
       return null;
