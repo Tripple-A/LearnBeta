@@ -7,6 +7,7 @@ This is an app that gives you access to a list of software development courses t
 * [User Features](#user-features)
 * [Built With](#built-with)
 * [Technologies Employed](#technologies-employed)
+* [Demo](#demo)
 * [Live Preview](#live-preview)
 * [Required Installations](#required-installations)
 * [Installation of This App](#instalation)
@@ -37,13 +38,19 @@ This is an app that gives you access to a list of software development courses t
 * Jest auto watch
 * React Testing
 
+<!-- DEMO -->
+## Demo
+For demo purposes, you can sign in with the credentials below;
+* Username - testee
+* Password - password
+
 <!-- LIVE PREVIEW -->
-## LIVE PREVIEW
+## Live Preview
 Find the live version [here](https://learnbeta.netlify.app/). Below is a screenshot of what it looks like on a laptop and mobile screen.
 ![Image](/src/images/proof.png)
 
 <!-- REQUIRED INSTALLATION -->
-## REQUIRED INSTALLATIONS
+## Required Installations
 * npm
 
 
