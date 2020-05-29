@@ -37,11 +37,11 @@ const Dashboard = ({
           .then(data => {
             addCourses(data.data);
             setTimeout(() => {
-              setLoaded(true)
+              setLoaded(true);
             }, 1500);
           }).catch(err => err);
       } else {
-        setLoaded(true)
+        setLoaded(true);
       }
       return null;
     }
@@ -106,7 +106,7 @@ const Dashboard = ({
       <div className="load-container">
         <img src="https://i.pinimg.com/originals/f6/06/cb/f606cbf26c0a18898b96ef6857953a75.gif" alt="" />
       </div>
-    )
+    );
   }
 
   return (

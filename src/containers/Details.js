@@ -12,9 +12,7 @@ const Detail = ({ courses, match, user }) => {
   const [course, setCourse] = useState(null);
   const [info, setInfo] = useState('');
   const [style, setStyle] = useState({ display: 'none' });
-  const [loaded, setLoaded] = useState(false);
   const [logOut, setLogOut] = useState('false');
-  
   const courseId = parseInt(match.params.id, 10);
   const history = useHistory();
   const addFav = () => {
@@ -52,15 +50,9 @@ const Detail = ({ courses, match, user }) => {
           .then(resp => resp.json())
           .then(data => {
             setCourse(data.data);
-            setTimeout(() => {
-              setLoaded(true)
-            }, 500);
           }).catch(err => err);
       } else {
         setCourse(courses.filter(item => item.id === courseId)[0]);
-        setTimeout(() => {
-          setLoaded(true)
-        }, 500);
       }
       return null;
     }
@@ -81,13 +73,6 @@ const Detail = ({ courses, match, user }) => {
     }
   };
 
-  if (!loaded) {
-    return (
-      <div className="load-container">
-        <img src="https://i.pinimg.com/originals/f6/06/cb/f606cbf26c0a18898b96ef6857953a75.gif" alt="" />
-      </div>
-    )
-  }
   const renderRedirect = () => {
     if (logOut === true) {
       return <Redirect to="/" />;
