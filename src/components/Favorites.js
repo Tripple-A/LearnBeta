@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import AliceCarousel from 'react-alice-carousel';
 import Course from './Course';
@@ -9,17 +10,22 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 const Favorites = ({ match }) => {
   const [courses, setCourses] = useState([]);
   const name = match.params.username;
+  const [logOut, setLogOut] = useState(false);
   const history = useHistory();
 
 
   useEffect(() => {
     async function getCourses() {
+      if (!localStorage.getItem('token')) {
+        return setLogOut(true);
+      }
       await fetch(`https://mycourses-api.herokuapp.com/api/favs/${name}`)
         .then(resp => resp.json())
         .then(data => {
           setCourses(data.data);
         })
         .catch(err => err);
+      return null;
     }
     getCourses();
   }, [name]);
@@ -39,6 +45,13 @@ const Favorites = ({ match }) => {
     };
   };
 
+  const renderRedirect = () => {
+    if (logOut === true) {
+      return <Redirect to="/" />;
+    }
+    return null;
+  };
+
   const handleSlideChanged = e => {
     document.querySelector('.index').textContent = +(e.item) === 0 ? 1 : Math.round(e.item);
   };
@@ -46,6 +59,7 @@ const Favorites = ({ match }) => {
 
   return (
     <div>
+      {renderRedirect()}
       <div className="favWrap">
         <div className="favHead">
           <input

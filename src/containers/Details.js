@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const mapStateToProps = state => ({
@@ -12,6 +12,7 @@ const Detail = ({ courses, match, user }) => {
   const [course, setCourse] = useState(null);
   const [info, setInfo] = useState('');
   const [style, setStyle] = useState({ display: 'none' });
+  const [logOut, setLogOut] = useState('false');
   const courseId = parseInt(match.params.id, 10);
   const history = useHistory();
   const addFav = () => {
@@ -38,8 +39,12 @@ const Detail = ({ courses, match, user }) => {
   };
   const controller = new AbortController();
   const { signal } = controller;
+
   useEffect(() => {
     async function wait() {
+      if (!localStorage.getItem('token')) {
+        return setLogOut(true);
+      }
       if (courses.length === 0) {
         await fetch(`https://mycourses-api.herokuapp.com/api/courses/${courseId}`, { signal })
           .then(resp => resp.json())
@@ -49,6 +54,7 @@ const Detail = ({ courses, match, user }) => {
       } else {
         setCourse(courses.filter(item => item.id === courseId)[0]);
       }
+      return null;
     }
     wait();
     return function cleanUp() {
@@ -66,6 +72,14 @@ const Detail = ({ courses, match, user }) => {
       btn.src = 'https://img.icons8.com/android/24/000000/expand-arrow.png';
     }
   };
+
+  const renderRedirect = () => {
+    if (logOut === true) {
+      return <Redirect to="/" />;
+    }
+    return null;
+  };
+
 
   if (course !== null) {
     return (
@@ -146,7 +160,7 @@ const Detail = ({ courses, match, user }) => {
     );
   }
   return (
-    <div>loading....</div>
+    <div>{renderRedirect()}</div>
   );
 };
 

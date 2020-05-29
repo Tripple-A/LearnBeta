@@ -58,6 +58,7 @@ const SignIn = ({ user, login }) => {
         login(name);
       })
       .catch(err => {
+        console.log(err)
         setError('There was a problem signing you in,Please try again');
         return err;
       });
