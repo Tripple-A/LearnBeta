@@ -74,6 +74,7 @@ const SignUp = ({ user, login }) => {
           const name = username;
           setPassword('');
           setUsername('');
+          setPasswordConfirmation('');
           setLoad(false);
           login(name);
         } else {
