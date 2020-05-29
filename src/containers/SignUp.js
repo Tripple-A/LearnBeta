@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { LOGIN } from '../actions';
 import Button from 'react-bootstrap-button-loader';
+import { LOGIN } from '../actions';
 
 
 const mapDispatchToProps = dispatch => ({

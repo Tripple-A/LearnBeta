@@ -38,6 +38,11 @@ const SignIn = ({ user, login }) => {
   const controller = new AbortController();
   const { signal } = controller;
   const handleSignIn = () => {
+    if (password === '' || username === '') {
+      setError('Please fill in all fields.');
+      document.querySelector('.error').style.color = 'red';
+      return null;
+    }
     setError('Signing you in...');
     document.querySelector('.error').style.color = 'green';
     setLoad(true);
@@ -68,6 +73,7 @@ const SignIn = ({ user, login }) => {
         setError('Username or Password incorrect! Please try again.');
         return err;
       });
+    return null;
   };
 
   const renderRedirect = () => {
