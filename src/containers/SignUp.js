@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { LOGIN } from '../actions';
+import Button from 'react-bootstrap-button-loader';
 
 
 const mapDispatchToProps = dispatch => ({
   login: username => dispatch(LOGIN(username)),
 });
+
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -19,7 +21,9 @@ const SignUp = ({ user, login }) => {
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const [error, setError] = useState('');
+  const [load, setLoad] = useState(false);
 
+  
   const handleChange = e => {
     switch (e.target.name) {
       case ('username'):
@@ -43,6 +47,7 @@ const SignUp = ({ user, login }) => {
       setError('Password and Password confirmation mustbe the same');
       return null;
     }
+    setLoad(true);
     fetch('https://mycourses-api.herokuapp.com/api/users', {
       method: 'POST',
       withCredentials: true,
@@ -66,8 +71,10 @@ const SignUp = ({ user, login }) => {
         } else {
           setError('Please try again,Username taken');
         }
+        setLoad(false);
       }).catch(err => {
         setError('Please try again, something went wrong');
+        setLoad(false);
         return err;
       });
     return null;
@@ -96,7 +103,7 @@ const SignUp = ({ user, login }) => {
         <br />
         <input className="usap" name="confirmation" type="password" placeholder="Password Confirmation" onChange={e => handleChange(e)} />
         <br />
-        <button className="auth" onClick={handleSignUp} type="submit"> Sign Up </button>
+        <Button loading={load} className="auth" onClick={handleSignUp} type="submit"> Sign Up </Button>
         <div className="notSigned">
           <p data-testid="question">
             Signed up?

@@ -23,6 +23,7 @@ const Dashboard = ({
   match, courses, logout, addCourses, filter,
 }) => {
   const [logOut, setLogOut] = useState('false');
+  const [loaded, setLoaded] = useState(false);
   const name = match.params.username;
 
   useEffect(() => {
@@ -32,7 +33,12 @@ const Dashboard = ({
           .then(resp => resp.json())
           .then(data => {
             addCourses(data.data);
+            setTimeout(() => {
+              setLoaded(true)
+            }, 1500);
           }).catch(err => err);
+      } else {
+        setLoaded(true)
       }
     }
     wait();
@@ -91,6 +97,13 @@ const Dashboard = ({
     };
   };
 
+  if (!loaded) {
+    return (
+      <div className="load-container">
+        <img src="https://i.pinimg.com/originals/f6/06/cb/f606cbf26c0a18898b96ef6857953a75.gif" alt="" />
+      </div>
+    )
+  }
 
   return (
     <div className="dashboard">

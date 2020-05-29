@@ -82,3 +82,12 @@ body{
 .bluey {
   font-size: 25px;
 }
+
+.load-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #F5F7F6;
+}

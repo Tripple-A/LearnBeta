@@ -12,11 +12,11 @@ import * as serviceWorker from './serviceWorker';
 const store = createStore(rootReducer);
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
       <App />
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
+  // </React.StrictMode>,
   document.getElementById('root'),
 );
 

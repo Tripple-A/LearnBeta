@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { LOGIN } from '../actions';
+import Button from 'react-bootstrap-button-loader';
 
 
 const mapDispatchToProps = dispatch => ({
@@ -19,6 +20,8 @@ const SignIn = ({ user, login }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [load, setLoad] = useState(false);
+
 
   const handleChange = e => {
     switch (e.target.name) {
@@ -37,6 +40,7 @@ const SignIn = ({ user, login }) => {
   const { signal } = controller;
   const handleSignIn = () => {
     setError('Signing you in...');
+    setLoad(true)
     fetch('https://mycourses-api.herokuapp.com/api/login', {
       signal,
       method: 'POST',
@@ -56,9 +60,11 @@ const SignIn = ({ user, login }) => {
         setPassword('');
         setUsername('');
         login(name);
+        setLoad(false);
       })
       .catch(err => {
         setError('There was a problem signing you in,Please try again');
+        setLoad(false);
         return err;
       });
   };
@@ -84,7 +90,7 @@ const SignIn = ({ user, login }) => {
         <br />
         <input className="usap pwd" name="password" type="password" placeholder="Password" onChange={e => handleChange(e)} />
         <br />
-        <button className="auth" onClick={handleSignIn} type="submit"> Sign In </button>
+        <Button loading={load} className="auth" onClick={handleSignIn} type="submit"> Sign In </Button>
         <div className="notSigned">
           <p data-testid="question">
             Not Signed up?

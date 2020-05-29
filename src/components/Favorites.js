@@ -8,6 +8,7 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 
 const Favorites = ({ match }) => {
   const [courses, setCourses] = useState([]);
+
   const name = match.params.username;
   const history = useHistory();
 
@@ -57,25 +58,30 @@ const Favorites = ({ match }) => {
           />
           <h4>Favorite Courses</h4>
         </div>
-        <AliceCarousel
-          responsive={resp()}
-          autoPlayInterval={3200}
-          autoPlayDirection="ltr"
-          fadeOutAnimation
-          mouseTrackingEnabled
-          disableAutoPlayOnAction
-          dotsDisabled
-          playButtonEnabled
-          stagePadding={{ paddingLeft: 20, paddingRight: 20 }}
-          onSlideChanged={handleSlideChanged}
-        >
-          {typeof courses !== 'string' ? courses.map(item => <Course key={item.id} course={item} />) : 'You have no favourite courses'}
-        </AliceCarousel>
-        <div className="slideIndex">
-          <span className="index">1</span>
-          /
+        {typeof courses !== 'string' ?
+          <div>
+            <AliceCarousel
+              responsive={resp()}
+              autoPlayInterval={3200}
+              autoPlayDirection="ltr"
+              fadeOutAnimation
+              mouseTrackingEnabled
+              disableAutoPlayOnAction
+              dotsDisabled
+              playButtonEnabled
+              stagePadding={{ paddingLeft: 20, paddingRight: 20 }}
+              onSlideChanged={handleSlideChanged}
+            >
+              {courses.map(item => <Course key={item.id} course={item} />)}
+            </AliceCarousel>
+            <div className="slideIndex">
+              <span className="index">1</span>
+              /
           {courses.length}
-        </div>
+            </div>
+          </div>
+          : <p className="no-fav">You have no favorite courses.</p>
+        }
 
       </div>
     </div>
