@@ -23,7 +23,7 @@ const SignUp = ({ user, login }) => {
   const [error, setError] = useState('');
   const [load, setLoad] = useState(false);
 
-  
+
   const handleChange = e => {
     switch (e.target.name) {
       case ('username'):
@@ -67,11 +67,12 @@ const SignUp = ({ user, login }) => {
           const name = username;
           setPassword('');
           setUsername('');
+          setLoad(false);
           login(name);
         } else {
+          setLoad(false);
           setError('Please try again,Username taken');
         }
-        setLoad(false);
       }).catch(err => {
         setError('Please try again, something went wrong');
         setLoad(false);

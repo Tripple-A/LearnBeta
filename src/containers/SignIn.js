@@ -59,12 +59,12 @@ const SignIn = ({ user, login }) => {
         const name = username;
         setPassword('');
         setUsername('');
-        login(name);
         setLoad(false);
+        login(name);
       })
       .catch(err => {
-        setError('There was a problem signing you in,Please try again');
         setLoad(false);
+        setError('Username or Password incorrect! Please try again.');
         return err;
       });
   };

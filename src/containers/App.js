@@ -28,7 +28,7 @@ const App = ({ login, addCourses }) => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     async function auth() {
-      if (token) {
+      if (token && !user) {
         await fetch('https://mycourses-api.herokuapp.com/api/auto_login', {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -49,7 +49,7 @@ const App = ({ login, addCourses }) => {
       }
     }
     auth();
-  }, [addCourses, login]);
+  }, [addCourses, login, user]);
 
   const renderRedirect = () => {
     let target;
@@ -63,34 +63,24 @@ const App = ({ login, addCourses }) => {
     return null;
   };
 
-  if (user && loaded) {
-    return (
-      <div className="container">
-        <BrowserRouter>
-          {renderRedirect()}
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/signIn" component={SignIn} />
-            <Route exact path="/signUp" component={SignUp} />
-            <Route exact path="/favs/:username" component={Favorites} />
-            <Route exact path="/profile/:username" component={Dashboard} />
-            <Route exact path="/detail/:id" component={Detail} />
-          </Switch>
-        </BrowserRouter>
-      </div>
-    );
-  }
+
   return (
-    <div>
+    <div className="container">
       <BrowserRouter>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/signIn" component={SignIn} />
-        <Route exact path="/signUp" component={SignUp} />
-        <Redirect from="*" to="/" />
+        {renderRedirect()}
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/signIn" component={SignIn} />
+          <Route exact path="/signUp" component={SignUp} />
+          <Route exact path="/favs/:username" component={Favorites} />
+          <Route exact path="/profile/:username" component={Dashboard} />
+          <Route exact path="/detail/:id" component={Detail} />
+        </Switch>
       </BrowserRouter>
     </div>
   );
 };
+
 
 App.propTypes = {
   addCourses: PropTypes.func.isRequired,

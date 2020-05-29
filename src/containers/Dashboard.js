@@ -28,6 +28,9 @@ const Dashboard = ({
 
   useEffect(() => {
     async function wait() {
+      if (!localStorage.getItem('token')) {
+        return setLogOut(true);
+      }
       if (courses.length === 0) {
         await fetch('https://mycourses-api.herokuapp.com/api/courses')
           .then(resp => resp.json())
@@ -40,6 +43,7 @@ const Dashboard = ({
       } else {
         setLoaded(true)
       }
+      return null;
     }
     wait();
   }, [addCourses, courses.length]);
