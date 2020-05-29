@@ -42,9 +42,16 @@ const SignUp = ({ user, login }) => {
   };
 
   const handleSignUp = () => {
+    document.querySelector('.error').style.color = 'green';
     setError('Signing you up...');
+    if (password === '' || passwordConfirmation === '' || username === '') {
+      setError('Please fill in all fields.');
+      document.querySelector('.error').style.color = 'red';
+      return null;
+    }
     if (password !== passwordConfirmation) {
       setError('Password and Password confirmation mustbe the same');
+      document.querySelector('.error').style.color = 'red';
       return null;
     }
     setLoad(true);
@@ -72,9 +79,11 @@ const SignUp = ({ user, login }) => {
         } else {
           setLoad(false);
           setError('Please try again,Username taken');
+          document.querySelector('.error').style.color = 'red';
         }
       }).catch(err => {
         setError('Please try again, something went wrong');
+        document.querySelector('.error').style.color = 'red';
         setLoad(false);
         return err;
       });

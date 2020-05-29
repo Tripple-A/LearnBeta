@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect, Link } from 'react-router-dom';
+import Button from 'react-bootstrap-button-loader';
 import { connect } from 'react-redux';
 import { LOGIN } from '../actions';
-import Button from 'react-bootstrap-button-loader';
-
 
 const mapDispatchToProps = dispatch => ({
   login: username => dispatch(LOGIN(username)),
@@ -40,7 +39,8 @@ const SignIn = ({ user, login }) => {
   const { signal } = controller;
   const handleSignIn = () => {
     setError('Signing you in...');
-    setLoad(true)
+    document.querySelector('.error').style.color = 'green';
+    setLoad(true);
     fetch('https://mycourses-api.herokuapp.com/api/login', {
       signal,
       method: 'POST',
@@ -64,6 +64,7 @@ const SignIn = ({ user, login }) => {
       })
       .catch(err => {
         setLoad(false);
+        document.querySelector('.error').style.color = 'red';
         setError('Username or Password incorrect! Please try again.');
         return err;
       });
