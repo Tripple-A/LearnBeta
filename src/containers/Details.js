@@ -54,13 +54,13 @@ const Detail = ({ courses, match, user }) => {
             setCourse(data.data);
             setTimeout(() => {
               setLoaded(true)
-            }, 1500);
+            }, 500);
           }).catch(err => err);
       } else {
         setCourse(courses.filter(item => item.id === courseId)[0]);
         setTimeout(() => {
           setLoaded(true)
-        }, 1500);
+        }, 500);
       }
       return null;
     }
