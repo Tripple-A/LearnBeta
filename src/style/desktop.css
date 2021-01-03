@@ -13,10 +13,13 @@
 
 .landing-page {
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('https://static1.squarespace.com/static/5947d8903e00becdc15038e5/59cd4a802994cab3f4fcf5f5/5d7714773d27287f52cb7002/1568085161173/young+adults.jpg?format=1500w');
+  background-size: cover;
+  background-position: center center;
   display: flex;
   flex-direction: column;
   margin-top: 0;
   justify-content: space-around;
+  overflow-y: hidden;
 }
 
 .landing-page h3, .landing-page h1 {
@@ -150,7 +153,7 @@ a {
   .landing-page {
     height: 100vh;
     text-align: left;
-    padding-left: 70px;
+    padding-left: 70px;  
   }
   .landingReg {
     padding-left: 0;
@@ -418,6 +421,12 @@ a {
   }
 }
 
+@media screen and (max-width: 560px) {
+  .landing-page {
+    background-image: url('../images/young+adults.jpg');
+  }
+}
+
 @media screen and (max-width: 430px) {
   .main {
     width: 100%;
@@ -430,6 +439,21 @@ a {
     padding-left: 0
   }
 }
+
+@media screen and (max-width: 380px) {
+  .landing-page {
+    background-size: contain;
+  }
+}
+
+@media screen and (min-width: 330px) and (max-width:380px) {
+
+  .landing-page h1 {
+    padding-top: 0px;
+    margin-top: -10px;
+  }
+}
+
 
 .error {
   color: red;
